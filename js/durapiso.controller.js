@@ -1,21 +1,21 @@
-// const uriservice = "https://durapisoservice.herokuapp.com/";
-const uriservice = "http://localhost:5000/";
+const uriservice = "https://durapisoservice.herokuapp.com/";
+// const uriservice = "http://localhost:5000/";
 
 // document.getElementById("btnLogin").addEventListener("click", login);
 //document.getElementById("btnLoad").addEventListener("click", ProductsGet);
 
 
-function  ProductOnLoad(){
+function ProductOnLoad() {
     debugger;
     var test = sessionStorage.getItem('label')
     sessionStorage.setItem('label', 'value')
 }
 
-function getFormData($form){
+function getFormData($form) {
     let unindexed_array = $form.serializeArray();
     let indexed_array = {};
 
-    $.map(unindexed_array, function(n, i){
+    $.map(unindexed_array, function (n, i) {
         indexed_array[n['name']] = n['value'];
     });
 
@@ -70,29 +70,29 @@ function ProductAdd() {
         error: function (jqXHR, textStatus, errorThrown) {
             alert(jqXHR.statusText);
         }
-    }); 
+    });
 }
 
-$( "#ProductCreateUpdate" ).on( "submit", function( event ) {
-  event.preventDefault();
-  console.log( $( this ).serialize() );
+$("#ProductCreateUpdate").on("submit", function (event) {
+    event.preventDefault();
+    console.log($(this).serialize());
 });
 
 function ProductsGetCallback(products) {
     // console.dir(products);
 
     let renderProducts = '';
-    products.map(item =>{
-     renderProducts += `<li id="${item.id}" class="list-group-item"> <input type="checkbox" name="" value="${item.id}"> <img alt="${item.description}" src="${item.imgurl}" width="25px" height="20px"> ${item.name}</li>`;         
+    products.map(item => {
+        renderProducts += `<li id="${item.id}" class="list-group-item"> <input type="checkbox" name="" value="${item.id}"> <img alt="${item.description}" src="${item.imgurl}" width="25px" height="20px"> ${item.name}</li>`;
     });
 
 
-       // <li class="list-group-item"> <input type="checkbox" name="vehicle1" value="Bike"> <img alt="x" src="./images/img_1.jpg" width="20px" height="20px"> Cras justoodio</li>
+    // <li class="list-group-item"> <input type="checkbox" name="vehicle1" value="Bike"> <img alt="x" src="./images/img_1.jpg" width="20px" height="20px"> Cras justoodio</li>
 
-      $("#divResultCatalogProduct").html( renderProducts);
-    
+    $("#divResultCatalogProduct").html(renderProducts);
+
 }
-function ProductsRead(){
+function ProductsRead() {
     let endpoint = uriservice + "api/products";
     //  let tmpData = JSON.stringify(tmpuser);
 
@@ -142,17 +142,10 @@ function ProductsRead(){
 
 
 }
-function login() {
-    // let tmpuser = {
-    //     "email": document.getElementById("txtEmail").value,
-    //     "password": document.getElementById("txtPWD").value,
-    // }
-    let tmpuser = {
-        "email": "iblanquel@gmail.com",
-        "password": "admin",
-    }
-
-    let user = {};
+function UserLogin() {
+    // alert("test");
+    let $form = $("#UserLogin");
+    let data = getFormData($form);
 
     let endpoint = uriservice + "api/login";
     //  let tmpData = JSON.stringify(tmpuser);
@@ -161,7 +154,7 @@ function login() {
         dataType: "json",
         url: endpoint,
         async: true,
-        data: tmpuser,
+        data: data,
         beforeSend: function (xhr) {
             // xhr.setRequestHeader("Authorization", token);
         },
@@ -183,12 +176,13 @@ function login() {
         },
         complete: function (jqXHR, textStatus) {
             if (jqXHR.statusText == "Not Found") {
-                alert("verificar usuario y contraseña")
+                alert("verificar usuario y contraseña");
+                document.getElementById("UserLogin").reset();
+
             } else {
                 console.dir(user);
                 location.href = "./about.html";
             }
-
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert(jqXHR.statusText);
