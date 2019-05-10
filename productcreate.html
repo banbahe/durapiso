@@ -9,17 +9,17 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login</title>
+    <title>Producto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="github.com/reypila" />
 
     <!-- 
-	//////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////
 
-	Github: 		https://www.github.com/reypila
+    Github:         https://www.github.com/reypila
 
-	//////////////////////////////////////////////////////
-	 -->
+    //////////////////////////////////////////////////////
+     -->
 
     <!-- Facebook and Twitter integration -->
     <meta property="og:title" content="" />
@@ -35,8 +35,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="favicon.ico">
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,600,400italic,700' rel='stylesheet'
-        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,600,400italic,700' rel='stylesheet' type='text/css'>
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
@@ -50,40 +49,38 @@
     <link rel="stylesheet" href="css/bootstrap.css">
 
     <!-- 
-	Default Theme Style 
-	You can change the style.css (default color purple) to one of these styles
-	-->
+    Default Theme Style 
+    You can change the style.css (default color purple) to one of these styles
+    -->
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Styleswitcher ( This style is for demo purposes only, you may delete this anytime. ) -->
     <link rel="stylesheet" id="theme-switch" href="css/style.css">
     <!-- End demo purposes only -->
 
-
     <style>
         /* For demo purpose only */
-
         /*
-	GREEN
-	8dc63f
-	RED
-	FA5555
-	TURQUOISE
-	27E1CE
-	BLUE 
-	2772DB
-	ORANGE
-	FF7844
-	YELLOW
-	FCDA05
-	PINK
-	F64662
-	PURPLE
-	7045FF
+    GREEN
+    8dc63f
+    RED
+    FA5555
+    TURQUOISE
+    27E1CE
+    BLUE 
+    2772DB
+    ORANGE
+    FF7844
+    YELLOW
+    FCDA05
+    PINK
+    F64662
+    PURPLE
+    7045FF
 
-	*/
-
+    */
         /* For Demo Purposes Only ( You can delete this anytime :-) */
+        
         #colour-variations {
             padding: 10px;
             -webkit-transition: 0.5s;
@@ -103,11 +100,11 @@
             -ms-box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
             box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
         }
-
+        
         #colour-variations.sleep {
             margin-left: -140px;
         }
-
+        
         #colour-variations h3 {
             text-align: center;
             ;
@@ -119,23 +116,23 @@
             padding: 0;
             ;
         }
-
+        
         #colour-variations ul,
         #colour-variations ul li {
             padding: 0;
             margin: 0;
         }
-
+        
         #colour-variations ul {
             margin-bottom: 20px;
             float: left;
         }
-
+        
         #colour-variations li {
             list-style: none;
             display: inline;
         }
-
+        
         #colour-variations li a {
             width: 20px;
             height: 20px;
@@ -143,41 +140,39 @@
             float: left;
             margin: 5px;
         }
-
-
-
+        
         #colour-variations li a[data-theme="style"] {
             background: #8dc63f;
         }
-
+        
         #colour-variations li a[data-theme="red"] {
             background: #FA5555;
         }
-
+        
         #colour-variations li a[data-theme="turquoise"] {
             background: #27E1CE;
         }
-
+        
         #colour-variations li a[data-theme="blue"] {
             background: #2772DB;
         }
-
+        
         #colour-variations li a[data-theme="orange"] {
             background: #FF7844;
         }
-
+        
         #colour-variations li a[data-theme="yellow"] {
             background: #FCDA05;
         }
-
+        
         #colour-variations li a[data-theme="pink"] {
             background: #F64662;
         }
-
+        
         #colour-variations li a[data-theme="purple"] {
             background: #7045FF;
         }
-
+        
         #colour-variations a[data-layout="boxed"],
         #colour-variations a[data-layout="wide"] {
             padding: 2px 0;
@@ -187,20 +182,20 @@
             color: #777;
             display: block;
         }
-
+        
         #colour-variations a[data-layout="boxed"]:hover,
         #colour-variations a[data-layout="wide"]:hover {
             border: 1px solid #777;
         }
-
+        
         #colour-variations a[data-layout="boxed"] {
             float: left;
         }
-
+        
         #colour-variations a[data-layout="wide"] {
             float: right;
         }
-
+        
         .option-toggle {
             position: absolute;
             right: 0;
@@ -220,12 +215,12 @@
             -ms-box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
             box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
         }
-
+        
         .option-toggle i {
             top: 2px;
             position: relative;
         }
-
+        
         .option-toggle:hover,
         .option-toggle:focus,
         .option-toggle:active {
@@ -236,58 +231,73 @@
     </style>
     <!-- End demo purposes only -->
 
-
     <!-- Modernizr JS -->
     <script src="js/modernizr-2.6.2.min.js"></script>
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 
 <!-- 
-		INFO:
-		Add 'boxed' class to body element to make the layout as boxed style.
-		Example: 
-		<body class="boxed">	
-	-->
+        INFO:
+        Add 'boxed' class to body element to make the layout as boxed style.
+        Example: 
+        <body class="boxed">    
+    -->
 
-<body>
+<body onload="ProductOnLoad()">
     <!-- Loader -->
     <div class="fh5co-loader"></div>
     <div id="fh5co-page">
         <div id="fh5co-faqs">
             <div class="container">
                 <div class="row row-bottom-padded-sm">
-                    <div class="col-md-6 col-md-offset-3 text-center">
-                        <div class="fh5co-label animate-box">DURAPISO</div>
-                        <h2 class="fh5co-lead animate-box">INGRESAR</h2>
+                    <div class="col-md-6 col-md-offset-3 text-center animate-box">
+                        <div class="fh5co-label">DURAPISO</div>
+                        <h2 class="fh5co-lead">Crear Producto</h2>
+                        <!-- <button type="button" class="btn btn-info" id="btnLoad">Cargar Productos</button>
+                        <button type="button" class="btn btn-danger" id="btnDelete">Borrar</button>
+                        <button type="button" class="btn btn-info" id="btnAdd">Agregar</button> -->
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2 animate-box">
-
-                        <form>
+                    <div class="col-md-10 col-md-offset-2 animate-box">
+                        <form id="ProductCreateUpdate">
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Email</label>
-                                <input type="email" class="form-control" id="txtEmail" aria-describedby="emailHelp"
-                                    placeholder="Ingresa email">
+                                <label name="id" for="id"></label>
+
+                                <img src="http://pageone.ph/wp-content/uploads/2017/04/2017-04-05-Gizmos-Say-Goodbye-To-The-Iconic-Twitter-Egg-Profile-.png" width="75px" height="75px" alt="img" class="img-thumbnail">
+                                <label for="imgProduct">Imagen</label>
+                                <input name="imgurl" type="text" class="form-control" id="txtImg" aria-describedby="emailHelp" placeholder="URL Imagen">
                                 <small id="emailHelp" class="form-text text-muted">
-                                    ¿Olvidaste tu cuenta?</small>
+                                    Visualizar</small>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="txtName">Nombre</label>
+                                <input name="name" type="text" class="form-control" id="txtName" placeholder="Nombre del producto">
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="txtDescription">Descripción</label>
+                                <input name="description" type="text" class="form-control" id="txtDescription" placeholder="Descripción del producto">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Contraseña</label>
-                                <input type="password" class="form-control" id="txtPWD"
-                                    placeholder="Ingresa Contraseña">
+                                <label for="txtCost">Costo</label>
+                                <input name="cost" type="text" class="form-control" id="txtCost" placeholder="Costo del producto">
                             </div>
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">Recordar</label>
-                            </div>
-                            <button type="submit" class="btn btn-primary" id="btnLogin">Ingresar</button>
-                        </form>
 
+                            <div class="form-group">
+                                <label for="txtSale">Venta</label>
+                                <input name="sale" type="text" class="form-control" id="txtSale" placeholder="Venta del producto">
+                            </div>
+
+                            <button type="button" class="btn btn-primary" onclick="ProductAdd()">Ingresar</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -301,20 +311,35 @@
         <a class="option-toggle"><i class="icon-gear"></i></a>
         <h3>Preset Colors</h3>
         <ul>
-            <li><a href="javascript: void(0);" data-theme="style"></a></li>
-            <li><a href="javascript: void(0);" data-theme="red"></a></li>
-            <li><a href="javascript: void(0);" data-theme="turquoise"></a></li>
-            <li><a href="javascript: void(0);" data-theme="blue"></a></li>
-            <li><a href="javascript: void(0);" data-theme="orange"></a></li>
-            <li><a href="javascript: void(0);" data-theme="yellow"></a></li>
-            <li><a href="javascript: void(0);" data-theme="pink"></a></li>
-            <li><a href="javascript: void(0);" data-theme="purple"></a></li>
+            <li>
+                <a href="javascript: void(0);" data-theme="style"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="red"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="turquoise"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="blue"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="orange"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="yellow"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="pink"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="purple"></a>
+            </li>
         </ul>
         <a href="#" data-layout="boxed">Boxed</a>
         <a href="#" data-layout="wide">Wide</a>
     </div>
     <!-- End demo purposes only -->
-
 
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
@@ -335,9 +360,8 @@
 
     <script src="js/durapiso.controller.js"></script>
 
-
     <script>
-        $(function () {
+        $(function() {
             $('#colour-variations ul').styleSwitcher({
                 defaultThemeId: 'theme-switch',
                 hasPreview: false,
@@ -346,7 +370,7 @@
                     isManagingLoad: true
                 }
             });
-            $('.option-toggle').click(function () {
+            $('.option-toggle').click(function() {
                 $('#colour-variations').toggleClass('sleep');
             });
         });
@@ -357,28 +381,33 @@
     <script src="js/main.js"></script>
 
     <!-- 
-	INFO:
-	jQuery Cookie for Demo Purposes Only. 
-	The code below is to toggle the layout to boxed or wide 
-	-->
+    INFO:
+    jQuery Cookie for Demo Purposes Only. 
+    The code below is to toggle the layout to boxed or wide 
+    -->
     <script src="js/jquery.cookie.js"></script>
     <script>
-        $(function () {
+        $(function() {
 
             if ($.cookie('layoutCookie') != '') {
                 $('body').addClass($.cookie('layoutCookie'));
             }
 
-            $('a[data-layout="boxed"]').click(function (event) {
+            $('a[data-layout="boxed"]').click(function(event) {
                 event.preventDefault();
-                $.cookie('layoutCookie', 'boxed', { expires: 7, path: '/' });
+                $.cookie('layoutCookie', 'boxed', {
+                    expires: 7,
+                    path: '/'
+                });
                 $('body').addClass($.cookie('layoutCookie')); // the value is boxed.
             });
 
-            $('a[data-layout="wide"]').click(function (event) {
+            $('a[data-layout="wide"]').click(function(event) {
                 event.preventDefault();
                 $('body').removeClass($.cookie('layoutCookie')); // the value is boxed.
-                $.removeCookie('layoutCookie', { path: '/' }); // remove the value of our cookie 'layoutCookie'
+                $.removeCookie('layoutCookie', {
+                    path: '/'
+                }); // remove the value of our cookie 'layoutCookie'
             });
         });
     </script>
