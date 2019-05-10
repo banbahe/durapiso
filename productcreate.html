@@ -256,6 +256,8 @@
                 <div class="row row-bottom-padded-sm">
                     <div class="col-md-6 col-md-offset-3 text-center animate-box">
                         <div class="fh5co-label">DURAPISO</div>
+                        <!-- <button type="button" class="btn btn-alert" id="btnDelete">Borrar</button> -->
+
                         <h2 class="fh5co-lead">Crear Producto</h2>
                         <!-- <button type="button" class="btn btn-info" id="btnLoad">Cargar Productos</button>
                         <button type="button" class="btn btn-danger" id="btnDelete">Borrar</button>
@@ -268,10 +270,10 @@
                             <div class="form-group">
                                 <label name="id" for="id"></label>
 
-                                <img src="http://pageone.ph/wp-content/uploads/2017/04/2017-04-05-Gizmos-Say-Goodbye-To-The-Iconic-Twitter-Egg-Profile-.png" width="75px" height="75px" alt="img" class="img-thumbnail">
-                                <label for="imgProduct">Imagen</label>
+                                <img id="imgPreview" src="http://pageone.ph/wp-content/uploads/2017/04/2017-04-05-Gizmos-Say-Goodbye-To-The-Iconic-Twitter-Egg-Profile-.png" width="75px" height="75px" alt="img" class="img-thumbnail">
+                                <label for="txtImg">Imagen</label>
                                 <input name="imgurl" type="text" class="form-control" id="txtImg" aria-describedby="emailHelp" placeholder="URL Imagen">
-                                <small id="emailHelp" class="form-text text-muted">
+                                <small id="emailHelp" onmouseover="PreviewImage()" class="form-text text-muted">
                                     Visualizar</small>
                             </div>
 

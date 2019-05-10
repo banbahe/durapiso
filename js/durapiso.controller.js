@@ -1,10 +1,12 @@
 const uriservice = "https://durapisoservice.herokuapp.com/";
 // const uriservice = "http://localhost:5000/";
 
-// document.getElementById("btnLogin").addEventListener("click", login);
-//document.getElementById("btnLoad").addEventListener("click", ProductsGet);
-
-
+function PreviewImage() {
+    var tmpimg = document.getElementById('txtImg').value;
+    if (tmpimg) {
+        document.getElementById('imgPreview').src = tmpimg;
+    }
+}
 function ProductOnLoad() {
     debugger;
     var test = sessionStorage.getItem('label')
@@ -58,14 +60,10 @@ function ProductAdd() {
             }
         },
         complete: function (jqXHR, textStatus) {
-            if (jqXHR.statusText == "Not Found") {
-                alert("verificar usuario y contraseña")
-            } else {
-                console.dir(product);
-                alert("Producto Agregado");
-                //location.href = "./about.html";
-            }
 
+            document.getElementById("UserLogin").reset();
+            alert("Producto Agregado");
+            location.href = "./productcatalog.html";
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert(jqXHR.statusText);
@@ -109,8 +107,7 @@ function ProductsRead() {
 
             if (typeof data !== "undefined") {
                 let adata = JSON.parse(data.result);
-                debugger;
-
+                //                debugger;
                 adata.map(datatmp => {
                     let tmpproduct = {
                         id: datatmp._id,
@@ -156,7 +153,6 @@ function UserLogin() {
         async: true,
         data: data,
         beforeSend: function (xhr) {
-            // xhr.setRequestHeader("Authorization", token);
         },
         success: function (data, textStatus, jqXHR) {
 
@@ -171,16 +167,13 @@ function UserLogin() {
                     description: datatmp.description,
                     imgurl: datatmp.imgurl,
                 };
-                // window.location.href("about.html");
             }
         },
         complete: function (jqXHR, textStatus) {
             if (jqXHR.statusText == "Not Found") {
-                alert("verificar usuario y contraseña");
                 document.getElementById("UserLogin").reset();
-
+                alert("verificar usuario y contraseña");
             } else {
-                console.dir(user);
                 location.href = "./about.html";
             }
         },
