@@ -61,28 +61,70 @@
 
 
     <style>
-        /* For demo purpose only */
+        /*  start workaround*/
+        ul {
+            list-style-type: none;
+        }
 
-        /*
-	GREEN
-	8dc63f
-	RED
-	FA5555
-	TURQUOISE
-	27E1CE
-	BLUE 
-	2772DB
-	ORANGE
-	FF7844
-	YELLOW
-	FCDA05
-	PINK
-	F64662
-	PURPLE
-	7045FF
+        li {
+            display: inline-block;
+        }
 
-	*/
+        input[type="checkbox"][id^="cb"] {
+            display: none;
+        }
 
+        label {
+            border: 1px solid #fff;
+            padding: 10px;
+            display: block;
+            position: relative;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        label:before {
+            background-color: white;
+            color: white;
+            content: " ";
+            display: block;
+            border-radius: 50%;
+            border: 1px solid grey;
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 28px;
+            transition-duration: 0.4s;
+            transform: scale(0);
+        }
+
+        label img {
+            height: 100px;
+            width: 100px;
+            transition-duration: 0.2s;
+            transform-origin: 50% 50%;
+        }
+
+        :checked+label {
+            border-color: #ddd;
+        }
+
+        :checked+label:before {
+            content: "✓";
+            background-color: grey;
+            transform: scale(1);
+        }
+
+        :checked+label img {
+            transform: scale(0.9);
+            box-shadow: 0 0 5px #333;
+            z-index: -1;
+        }
+
+        /*   end url workaround*/
         /* For Demo Purposes Only ( You can delete this anytime :-) */
         #colour-variations {
             padding: 10px;
@@ -253,7 +295,7 @@
 		<body class="boxed">	
 	-->
 
-<body>
+<body onload="ProductsRead()">
     <!-- Loader -->
     <div class="fh5co-loader"></div>
     <div id="fh5co-page">
@@ -263,21 +305,28 @@
                     <div class="col-md-6 col-md-offset-3 text-center animate-box">
                         <div class="fh5co-label">DURAPISO</div>
                         <h2 class="fh5co-lead">Catalogo Productos</h2>
-                        <button onclick="ProductsRead()" type="button" class="btn btn-primary" id="btnLoad">Cargar Productos</button>
-                        <button onclick="ProductsDelete()" type="button" class="btn btn-danger" id="btnDelete">Borrar</button>
-                        <button  type="menu" class="btn btn-info" id="btnAdd"><a href="./productcreate.html" style="text-decoration:none">Agregar</a> </button>
+                        <!-- <button onclick="ProductsRead()" type="button" class="btn btn-primary" id="btnLoad">Cargar
+                            Productos</button> -->
+
+                        <button type="menu" class="btn btn-primary" id="btnAdd"><a href="./productcreate.html"
+                                style="text-decoration:none;color:white;">Agregar</a> </button>
+                        <button onclick="ProductsDelete()" type="button" class="btn btn-danger" id="btnDelete"
+                            style="visibility:  hidden;">Borrar</button>
+                        <button onclick="ProductUpdate()" type="menu" class="btn btn-warning" id="btnUpdate" style="visibility: hidden;"><a
+                                href="./productcreate.html" style="text-decoration:none;color:white;">Modificar</a>
+                        </button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-10 col-md-offset-2 animate-box">
-
-                        <ul class="list-group">
-                            <div id="divResultCatalogProduct"></div>
-                                <!-- <li class="list-group-item"> <input type="checkbox" name="vehicle1" value="Bike"> <img alt="x" src="./images/img_1.jpg" width="20px" height="20px"> Cras justo
-                                    odio </input></li> -->
-                                
-                        </ul>
-
+                        <!-- <ul> -->
+                        <div id="divResultCatalogProduct">
+                            <!-- <li><input type="checkbox" id="cb2" />
+                                <label for="cb2" data-toggle="tooltip" title="Tooltip on top"><img
+                                        src="http://lorempixel.com/101/101" /></label>
+                            </li> -->
+                        </div>
+                        <!-- </ul> -->
                     </div>
                 </div>
             </div>
@@ -369,6 +418,16 @@
                 event.preventDefault();
                 $('body').removeClass($.cookie('layoutCookie')); // the value is boxed.
                 $.removeCookie('layoutCookie', { path: '/' }); // remove the value of our cookie 'layoutCookie'
+            });
+
+            $('[data-toggle="tooltip"]').tooltip();
+
+            $(document).on('mouseenter', '[data-toggle="tooltip"]', function () {
+                $(this).tooltip('show');
+            });
+
+            $(document).on('mouseleave', '[data-toggle="tooltip"]', function () {
+                $(this).tooltip('hide');
             });
         });
     </script>

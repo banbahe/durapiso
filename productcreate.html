@@ -35,7 +35,8 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="favicon.ico">
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,600,400italic,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,600,400italic,700' rel='stylesheet'
+        type='text/css'>
 
     <!-- Animate.css -->
     <link rel="stylesheet" href="css/animate.css">
@@ -80,7 +81,7 @@
 
     */
         /* For Demo Purposes Only ( You can delete this anytime :-) */
-        
+
         #colour-variations {
             padding: 10px;
             -webkit-transition: 0.5s;
@@ -100,11 +101,11 @@
             -ms-box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
             box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
         }
-        
+
         #colour-variations.sleep {
             margin-left: -140px;
         }
-        
+
         #colour-variations h3 {
             text-align: center;
             ;
@@ -116,23 +117,23 @@
             padding: 0;
             ;
         }
-        
+
         #colour-variations ul,
         #colour-variations ul li {
             padding: 0;
             margin: 0;
         }
-        
+
         #colour-variations ul {
             margin-bottom: 20px;
             float: left;
         }
-        
+
         #colour-variations li {
             list-style: none;
             display: inline;
         }
-        
+
         #colour-variations li a {
             width: 20px;
             height: 20px;
@@ -140,39 +141,39 @@
             float: left;
             margin: 5px;
         }
-        
+
         #colour-variations li a[data-theme="style"] {
             background: #8dc63f;
         }
-        
+
         #colour-variations li a[data-theme="red"] {
             background: #FA5555;
         }
-        
+
         #colour-variations li a[data-theme="turquoise"] {
             background: #27E1CE;
         }
-        
+
         #colour-variations li a[data-theme="blue"] {
             background: #2772DB;
         }
-        
+
         #colour-variations li a[data-theme="orange"] {
             background: #FF7844;
         }
-        
+
         #colour-variations li a[data-theme="yellow"] {
             background: #FCDA05;
         }
-        
+
         #colour-variations li a[data-theme="pink"] {
             background: #F64662;
         }
-        
+
         #colour-variations li a[data-theme="purple"] {
             background: #7045FF;
         }
-        
+
         #colour-variations a[data-layout="boxed"],
         #colour-variations a[data-layout="wide"] {
             padding: 2px 0;
@@ -182,20 +183,20 @@
             color: #777;
             display: block;
         }
-        
+
         #colour-variations a[data-layout="boxed"]:hover,
         #colour-variations a[data-layout="wide"]:hover {
             border: 1px solid #777;
         }
-        
+
         #colour-variations a[data-layout="boxed"] {
             float: left;
         }
-        
+
         #colour-variations a[data-layout="wide"] {
             float: right;
         }
-        
+
         .option-toggle {
             position: absolute;
             right: 0;
@@ -215,12 +216,12 @@
             -ms-box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
             box-shadow: 0 0 9px 0 rgba(0, 0, 0, .1);
         }
-        
+
         .option-toggle i {
             top: 2px;
             position: relative;
         }
-        
+
         .option-toggle:hover,
         .option-toggle:focus,
         .option-toggle:active {
@@ -268,11 +269,19 @@
                     <div class="col-md-10 col-md-offset-2 animate-box">
                         <form id="ProductCreateUpdate">
                             <div class="form-group">
-                                <label name="id" for="id"></label>
+                                <input id="productid" name="id" type="hidden" value="">
+                                <input id="productstatus" name="status_item" type="hidden" value="4">
+                                <input id="productstock" name="stock" type="hidden" value="1">
+                                <input id="productiva" name="iva" type="hidden" value="0.16">
 
-                                <img id="imgPreview" src="http://pageone.ph/wp-content/uploads/2017/04/2017-04-05-Gizmos-Say-Goodbye-To-The-Iconic-Twitter-Egg-Profile-.png" width="75px" height="75px" alt="img" class="img-thumbnail">
+
+
+                                <img id="imgPreview"
+                                    src="http://pageone.ph/wp-content/uploads/2017/04/2017-04-05-Gizmos-Say-Goodbye-To-The-Iconic-Twitter-Egg-Profile-.png"
+                                    width="75px" height="75px" alt="img" class="img-thumbnail">
                                 <label for="txtImg">Imagen</label>
-                                <input name="imgurl" type="text" class="form-control" id="txtImg" aria-describedby="emailHelp" placeholder="URL Imagen">
+                                <input name="imgurl" type="text" class="form-control" id="txtImg"
+                                    aria-describedby="emailHelp" placeholder="URL Imagen">
                                 <small id="emailHelp" onmouseover="PreviewImage()" class="form-text text-muted">
                                     Visualizar</small>
                             </div>
@@ -280,25 +289,29 @@
                             <div class="form-group">
 
                                 <label for="txtName">Nombre</label>
-                                <input name="name" type="text" class="form-control" id="txtName" placeholder="Nombre del producto">
+                                <input name="name" type="text" class="form-control" id="txtName"
+                                    placeholder="Nombre del producto">
 
                             </div>
 
                             <div class="form-group">
                                 <label for="txtDescription">Descripción</label>
-                                <input name="description" type="text" class="form-control" id="txtDescription" placeholder="Descripción del producto">
+                                <input name="description" type="text" class="form-control" id="txtDescription"
+                                    placeholder="Descripción del producto">
                             </div>
                             <div class="form-group">
                                 <label for="txtCost">Costo</label>
-                                <input name="cost" type="text" class="form-control" id="txtCost" placeholder="Costo del producto">
+                                <input name="cost" type="text" class="form-control" id="txtCost"
+                                    placeholder="Costo del producto">
                             </div>
 
                             <div class="form-group">
                                 <label for="txtSale">Venta</label>
-                                <input name="sale" type="text" class="form-control" id="txtSale" placeholder="Venta del producto">
+                                <input name="sale" type="text" class="form-control" id="txtSale"
+                                    placeholder="Venta del producto">
                             </div>
-
-                            <button type="button" class="btn btn-primary" onclick="ProductAdd()">Ingresar</button>
+                            <!-- <button type="button" class="btn btn-primary" onclick="ProductUpdate()">Modificar</button> -->
+                            <button type="button" class="btn btn-primary" onclick="ProductAdd()">Agregar</button>
                         </form>
                     </div>
                 </div>
@@ -363,7 +376,7 @@
     <script src="js/durapiso.controller.js"></script>
 
     <script>
-        $(function() {
+        $(function () {
             $('#colour-variations ul').styleSwitcher({
                 defaultThemeId: 'theme-switch',
                 hasPreview: false,
@@ -372,7 +385,7 @@
                     isManagingLoad: true
                 }
             });
-            $('.option-toggle').click(function() {
+            $('.option-toggle').click(function () {
                 $('#colour-variations').toggleClass('sleep');
             });
         });
@@ -389,13 +402,13 @@
     -->
     <script src="js/jquery.cookie.js"></script>
     <script>
-        $(function() {
+        $(function () {
 
             if ($.cookie('layoutCookie') != '') {
                 $('body').addClass($.cookie('layoutCookie'));
             }
 
-            $('a[data-layout="boxed"]').click(function(event) {
+            $('a[data-layout="boxed"]').click(function (event) {
                 event.preventDefault();
                 $.cookie('layoutCookie', 'boxed', {
                     expires: 7,
@@ -404,7 +417,7 @@
                 $('body').addClass($.cookie('layoutCookie')); // the value is boxed.
             });
 
-            $('a[data-layout="wide"]').click(function(event) {
+            $('a[data-layout="wide"]').click(function (event) {
                 event.preventDefault();
                 $('body').removeClass($.cookie('layoutCookie')); // the value is boxed.
                 $.removeCookie('layoutCookie', {
