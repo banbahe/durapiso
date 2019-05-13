@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
+
 <html class="no-js">
-<!--<![endif]-->
 
 <head>
 	<meta charset="utf-8">
@@ -15,14 +11,7 @@
 	<meta name="keywords" content="Durapiso, pisos, mosaico, interioires" />
 	<meta name="author" content="github.com/reypila" />
 
-	<!-- 
-	//////////////////////////////////////////////////////
 
-	github.com/reypila	
-	//////////////////////////////////////////////////////
-	 -->
-
-	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content="" />
 	<meta property="og:image" content="" />
 	<meta property="og:url" content="" />
@@ -35,10 +24,6 @@
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="favicon.ico">
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- durapiso.index.html -->
-	<script src="js/durapiso.index.js"></script>
 
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,600,400italic,700' rel='stylesheet'
 		type='text/css'>
@@ -364,8 +349,8 @@
 					<div id="divIndexProducts">
 
 						<div class="col-md-4 col-sm-6 col-xxs-12 animate-box fadeInUp animated">
-							<a href="images/img_7.jpg" class="fh5co-project-item image-popup">
-								<img src="images/img_7.jpg" alt="Image" class="img-responsive">
+							<a href="images/img_6.jpg" class="fh5co-project-item image-popup">
+								<img src="images/img_6.jpg" alt="Image" class="img-responsive">
 								<div class="fh5co-text">
 									<h2>Adhesivos EstaticoAdhesivos EstaticoAdhesivos EstaticoAdhesivos
 										EstaticoAdhesivos Estatico</h2>
@@ -539,7 +524,42 @@
 					</div>
 				</div>
 				<div class="row">
-				<div id="divClientsResenas"></div>
+					<div id="rowClientes"></div>
+
+					<div class="col-md-8 col-md-offset-2 text-center animate-box">
+
+						<!-- <div class="flexslider">
+
+							<ul class="slides"> -->
+						<!-- <li>
+									<blockquote>
+										<p>&ldquo;Descripcion del cliente .&rdquo;
+										</p>
+										<p><cite>&mdash; Cliente</cite></p>
+									</blockquote>
+								</li>
+								<li>
+									<blockquote>
+										<p>&ldquo;Client Review .&rdquo;
+										</p>
+										<p><cite>&mdash; Client</cite></p>
+									</blockquote>
+								</li> -->
+						<div id="divClientsResenas"> </div>
+						<!-- </ul>
+						</div> -->
+						<!-- <div class="flexslider-controls">
+							<ol class="flex-control-nav animate-box"> -->
+						<!-- <li class="animate-box"><img src="images/person1.png" alt="Durapiso"></li>
+
+								<li class="animate-box"><img src="images/person2.png" alt="Durapiso"></li> -->
+
+						<div id="divClients"> </div>
+						<!-- </ol>
+						</div> -->
+
+					</div>
+					<!-- <div id="divClientsResenas"></div> -->
 				</div>
 			</div>
 		</section>
@@ -654,6 +674,9 @@
 	<!-- End demo purposes only -->
 
 
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+
 
 	<!-- jQuery Easing -->
 	<script src="js/jquery.easing.1.3.js"></script>
@@ -685,10 +708,12 @@
 		});
 	</script>
 	<!-- End demo purposes only -->
-
+	<script src="js/durapiso.index.js"></script>
 	<!-- Main JS (Do not remove) -->
 	<script src="js/main.js"></script>
+	<!-- durapiso.index.html -->
 	<script src="js/jquery.cookie.js"></script>
+
 	<script>
 		$(function () {
 
@@ -708,7 +733,20 @@
 				$.removeCookie('layoutCookie', { path: '/' }); // remove the value of our cookie 'layoutCookie'
 			});
 			// fadeInUp animated
-			
+
+			var testimonialFlexslider2 = function () {
+				var $flexslider = $('.flexslider');
+				$flexslider.flexslider({
+					animation: "fade",
+					manualControls: ".flex-control-nav li",
+					directionNav: false,
+					smoothHeight: true,
+					useCSS: false /* Chrome fix*/
+				});
+				alert("ok");
+			}
+
+			testimonialFlexslider2();
 		});
 	</script>
 
@@ -716,4 +754,5 @@
 </body>
 
 </html>
+
 </html>

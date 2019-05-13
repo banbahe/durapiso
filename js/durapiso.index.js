@@ -12,44 +12,100 @@ OnStart();
 
 // CLIENTS 
 function ClientsReadCallBack(clients) {
+    $("#rowClientes").load('clients.html');
+    let divClientsResenas = `
+    <div class="flexslider">
+    <ul class="slides">
+    <li>
+    <blockquote>
+        <p>&ldquo; Hola .&rdquo;
+        </p>
+        <p><cite>&mdash; Sepomex </cite></p>
+        <img src="./images/person3.png" width="25px" height="25px alt="Durapiso">
+    </blockquote>
+    </li>
+    <li>
+    <blockquote>
+        <p>&ldquo; Hola 2 .&rdquo;
+        </p>
+        <p><cite>&mdash; Imagen 2 </cite></p>
+        <img src="./images/person2.png" width="25px" height="25px alt="Durapiso">
+    </blockquote>
+    </li>
+    </ul>
+    </div>
+
+
+
+    `;
+
+
+
+    let divClients = `
+    <div class="flexslider-controls">
+    <ol class="flex-control-nav animate-box">
+    <li class="animate-box"><img src="images/person3.png" alt="Durapiso"></li>
+    <li class="animate-box"><img src="images/person3.png" alt="Durapiso"></li>
+    </ol>
+    
+    </div>
+    `;
+
+    let myElement2 = document.getElementById("divClientsResenas");
+    myElement2.innerHTML = divClientsResenas;
+
+    let myElement = document.getElementById("divClients");
+    myElement.innerHTML = divClients;
+
+    // jQuery
+$.getScript('./main.js', function()
+{
+    // script is now loaded and executed.
+    // put your dependent JS here.
+    testimonialFlexslider();
+
+});
+
+    
+
     // console.dir(products);
 
-    let renderClients = '';
-    let renderClientsResenas = '';
+    // let renderClients = '';
+    // let renderClientsResenas = '';
 
-    clients.map(item => {
-        renderClients += `
-      <li class="animate-box"><img src="${item.imgurl}" alt="${item.description}"></li>   
-     `;
+    // clients.map(item => {
+    //     renderClients += `
+    //   <li class="animate-box"><img src="${item.imgurl}" alt="${item.description}"></li>   
+    //  `;
 
-     renderClientsResenas += `
-      <li>
-      <blockquote>
-      <p>&ldquo;${item.resenadurapiso} .&rdquo;
-      </p>
-      <p><cite>&mdash; ${item.name}</cite></p>
-      </blockquote>
-      </li>
-    `;
-    });
+    //  renderClientsResenas += `
+    //   <li>
+    //   <blockquote>
+    //   <p>&ldquo;${item.resenadurapiso} .&rdquo;
+    //   </p>
+    //   <p><cite>&mdash; ${item.name}</cite></p>
+    //   </blockquote>
+    //   </li>
+    // `;
+    // });
     
-    // let myElement = document.getElementById("divClients");
-    renderClientsResenas = "<ul class='slides'>" + renderClients + "</ul>";
-    let myElement2 = document.getElementById("divClientsResenas");
-    // myElement.innerHTML = renderClients;
-    myElement2.innerHTML = renderClientsResenas;
+    // // let myElement = document.getElementById("divClients");
+    // renderClientsResenas = "<ul class='slides'>" + renderClients + "</ul>";
+    // let myElement2 = document.getElementById("divClientsResenas");
+    // // myElement.innerHTML = renderClients;
+    // myElement2.innerHTML = renderClientsResenas;
 
-    var testimonialFlexslider = function() {
-        var $flexslider = $('.flexslider');
-        $flexslider.flexslider({
-          animation: "fade",
-          manualControls: ".flex-control-nav li",
-          directionNav: false,
-          smoothHeight: true,
-          useCSS: false /* Chrome fix*/
-        });
-    };
-    testimonialFlexslider();   
+    // var testimonialFlexslider = function() {
+    //     var $flexslider = $('.flexslider');
+    //     $flexslider.flexslider({
+    //       animation: "fade",
+    //       manualControls: ".flex-control-nav li",
+    //       directionNav: false,
+    //       smoothHeight: true,
+    //       useCSS: false /* Chrome fix*/
+    //     });
+    // };
+    // testimonialFlexslider();   
 
 }
 function startGame() {

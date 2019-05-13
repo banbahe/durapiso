@@ -2,8 +2,6 @@
 	
 	'use strict';
 
-
-
 	// iPad and iPod detection	
 	var isiPad = function(){
 		return (navigator.platform.indexOf("iPad") != -1);
@@ -70,7 +68,8 @@
 
 			$('html, body').animate({
 				scrollTop: $( $(this).closest('[data-next="yes"]').next()).offset().top
-			}, 1000, 'easeInOutExpo');
+			// }, 1000, 'easeInOutExpo');
+			}, 800, 'easeInOutExpo');
 			return false;
 		});
 	};
