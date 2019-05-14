@@ -12,7 +12,105 @@ OnStart();
 
 // CLIENTS 
 function ClientsReadCallBack(clients) {
-    $("#rowClientes").load('clients.html');
+
+    let tmphtml2 = `
+    <!-- Flexslider -->
+	<link rel="stylesheet" href="css/flexslider.css">
+    <div class="flexslider">
+
+							<ul class="slides">
+						 <li>
+									<blockquote>
+										<p>&ldquo;Descripcion del cliente .&rdquo;
+										</p>
+										<p><cite>&mdash; Cliente</cite></p>
+									</blockquote>
+								</li>
+								<li>
+									<blockquote>
+										<p>&ldquo;Client Review .&rdquo;
+										</p>
+										<p><cite>&mdash; Client</cite></p>
+									</blockquote>
+								</li> 
+                                </ul>
+                                </div>
+
+                                <script src="js/jquery.flexslider-min.js"></script>
+    `;
+    let tmphtml = `
+    
+    <style>
+    .carousel-inner > .item > img,
+    .carousel-inner > .item > a > img {
+      width: 25%;
+      margin: auto;
+    }
+    .carousel-control.right{
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.0001) 100%);
+    }
+
+    .carousel-control.left{
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.0001) 100%);
+    }
+    </style>
+    
+    <br>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+      </ol>
+    
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+    
+        <div class="item active">
+          <img src="images/person1.png" alt="Chania" width="360" height="245">
+          <div class="carousel-caption">
+           
+          </div>
+        </div>
+    
+        <div class="item">
+          <img src="images/person2.png" alt="Chania" width="460" height="345">
+          <div class="carousel-caption">
+            
+          </div>
+        </div>
+      
+        <div class="item">
+          <img src="images/person3.png" alt="Flower" width="460" height="345">
+          <div class="carousel-caption">
+            
+          </div>
+        </div>
+    
+        <div class="item">
+          <img src="images/person1.png" alt="Flower" width="460" height="345">
+          <div class="carousel-caption">
+            
+          </div>
+        </div>
+    
+      </div>
+    
+      <!-- Left and right controls -->
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>`; 
+
+    // $("#rowClientes").html(tmphtml);
+    // $("#rowClientes").html(tmphtml2);
     let divClientsResenas = `
     <div class="flexslider">
     <ul class="slides">
@@ -51,20 +149,20 @@ function ClientsReadCallBack(clients) {
     </div>
     `;
 
-    let myElement2 = document.getElementById("divClientsResenas");
-    myElement2.innerHTML = divClientsResenas;
+//     let myElement2 = document.getElementById("divClientsResenas");
+//     myElement2.innerHTML = divClientsResenas;
 
-    let myElement = document.getElementById("divClients");
-    myElement.innerHTML = divClients;
+//     let myElement = document.getElementById("divClients");
+//     myElement.innerHTML = divClients;
 
-    // jQuery
-$.getScript('./main.js', function()
-{
-    // script is now loaded and executed.
-    // put your dependent JS here.
-    testimonialFlexslider();
+//     // jQuery
+// $.getScript('./main.js', function()
+// {
+//     // script is now loaded and executed.
+//     // put your dependent JS here.
+//     testimonialFlexslider();
 
-});
+// });
 
     
 
@@ -108,20 +206,7 @@ $.getScript('./main.js', function()
     // testimonialFlexslider();   
 
 }
-function startGame() {
-    $('.flexslider').flexslider({
-        animation: "slide",
-        animationLoop: false,
-        randomize: true,
-        directionNav: false,
-        touch: true,
-        after: function (slider) {
-            $(".flex-control-nav li").removeClass("active");
-            $(".flex-active").parent().addClass("active");
-        },
-        itemMargin: 5
-    });
-}
+
 function ClientsRead() {
     // debugger;
     listProduct = [];
