@@ -1,5 +1,5 @@
-// const uriservice = "https://durapisoservice.herokuapp.com/";
-const uriservice = "http://localhost:5000/";
+const uriservice = "https://durapisoservice.herokuapp.com/";
+// const uriservice = "http://localhost:5000/";
 let listProduct = [];
 let products = [];
 
@@ -12,15 +12,21 @@ OnStart();
 var myVar;
 
 function Test() {
-    myVar = setTimeout(alertFunc, 3000);
+    myVar = setTimeout(alertFunc, 300);
 }
 
 function alertFunc() {
     console.dir(clients[1]);
-    alert("Hello!");
-    document.getElementById("client_description_0").innerHTML = clients[1].description;
-    document.getElementById("client_name_0").innerHTML = clients[1].name;   
-    $("#client_imgurl_0").attr("src", clients[1].imgurl);
+
+
+    for (let index = 0; index < 3; index++) {
+
+        document.getElementById("client_description_" + index).innerHTML = clients[index].description;
+        document.getElementById("client_name_" + index).innerHTML = clients[index].name;
+        $("#client_imgurl_" + index).attr("src", clients[index].imgurl);
+
+    }
+
 }
 
 // CLIENTS 
