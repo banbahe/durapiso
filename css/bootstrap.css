@@ -1437,6 +1437,16 @@ img {
   height: auto;
 }
 
+.img-responsive-custom {
+  width: 350px;
+  height: 230px;
+}
+
+.img-responsive-custom-about{  
+    width: 370px;
+    height: 370px;
+}
+
 .img-rounded {
   border-radius: 6px;
 }
