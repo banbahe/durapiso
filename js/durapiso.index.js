@@ -18,13 +18,10 @@ function Test() {
 function alertFunc() {
     // console.dir(clients[1]);
 
-
     for (let index = 0; index < clients.length; index++) {
-
         document.getElementById("client_description_" + index).innerHTML = clients[index].description;
         document.getElementById("client_name_" + index).innerHTML = clients[index].name;
         $("#client_imgurl_" + index).attr("src", clients[index].imgurl);
-
     }
 
 }
