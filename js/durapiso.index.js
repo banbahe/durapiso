@@ -9,14 +9,8 @@ let listClient = [];
 const sessionmaker = "LANDINGPAGE";
 // star LANDING PAGE
 OnStart();
-var myVar;
 
-function Test() {
-    myVar = setTimeout(alertFunc, 300);
-}
-
-function alertFunc() {
-    // console.dir(clients[1]);
+function ClientsCurrent() {
 
     for (let index = 0; index < clients.length; index++) {
         document.getElementById("client_description_" + index).innerHTML = clients[index].description;
