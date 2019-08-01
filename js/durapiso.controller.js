@@ -134,7 +134,6 @@ function ProductAdd() {
     data.maker = sessionmaker;
     let endpoint = "";
     let product = {};
-    debugger;
 
     if ( data.id.length > 0 ) {
         sessionStorage.setItem('productupdate', "");
@@ -173,7 +172,7 @@ function ProductAdd() {
                 document.getElementById("ProductCreateUpdate").reset();
 
                 alert("Producto Agregado");
-                location.href = "./productcatalog.html";
+                location.href = "./backofficeproducts.html";
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert(jqXHR.statusText);
@@ -229,6 +228,7 @@ $("#ProductCreateUpdate").on("submit", function (event) {
     event.preventDefault();
     console.log($(this).serialize());
 });
+
 
 function ProductsGetCallback(products) {
     // console.dir(products);
@@ -289,6 +289,7 @@ function ProductsRead() {
         },
         complete: function (jqXHR, textStatus) {
             ProductsGetCallback(products);
+            
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert(jqXHR.statusText);
@@ -332,7 +333,7 @@ function UserLogin() {
                 document.getElementById("UserLogin").reset();
                 alert("verificar usuario y contraseña");
             } else {
-                location.href = "./about.html";
+                location.href = "./backofficemainmenu.html";
             }
         },
         error: function (jqXHR, textStatus, errorThrown) {

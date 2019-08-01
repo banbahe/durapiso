@@ -1,27 +1,13 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js">
-<!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login</title>
+    <title>Durapiso</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="github.com/reypila" />
 
-    <!-- 
-	//////////////////////////////////////////////////////
-
-	Github: 		https://www.github.com/reypila
-
-	//////////////////////////////////////////////////////
-	 -->
-
-    <!-- Facebook and Twitter integration -->
     <meta property="og:title" content="" />
     <meta property="og:image" content="" />
     <meta property="og:url" content="" />
@@ -49,83 +35,12 @@
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="css/bootstrap.css">
 
-    <!-- 
-	Default Theme Style 
-	You can change the style.css (default color purple) to one of these styles
-	-->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Styleswitcher ( This style is for demo purposes only, you may delete this anytime. ) -->
     <link rel="stylesheet" id="theme-switch" href="css/style.css">
-    <!-- End demo purposes only -->
-
 
     <style>
-        /*  start workaround*/
-        ul {
-            list-style-type: none;
-        }
 
-        li {
-            display: inline-block;
-        }
-
-        input[type="checkbox"][id^="cb"] {
-            display: none;
-        }
-
-        label {
-            border: 1px solid #fff;
-            padding: 10px;
-            display: block;
-            position: relative;
-            margin: 10px;
-            cursor: pointer;
-        }
-
-        label:before {
-            background-color: white;
-            color: white;
-            content: " ";
-            display: block;
-            border-radius: 50%;
-            border: 1px solid grey;
-            position: absolute;
-            top: -5px;
-            left: -5px;
-            width: 25px;
-            height: 25px;
-            text-align: center;
-            line-height: 28px;
-            transition-duration: 0.4s;
-            transform: scale(0);
-        }
-
-        label img {
-            height: 100px;
-            width: 100px;
-            transition-duration: 0.2s;
-            transform-origin: 50% 50%;
-        }
-
-        :checked+label {
-            border-color: #ddd;
-        }
-
-        :checked+label:before {
-            content: "✓";
-            background-color: grey;
-            transform: scale(1);
-        }
-
-        :checked+label img {
-            transform: scale(0.9);
-            box-shadow: 0 0 5px #333;
-            z-index: -1;
-        }
-
-        /*   end url workaround*/
-        /* For Demo Purposes Only ( You can delete this anytime :-) */
         #colour-variations {
             padding: 10px;
             -webkit-transition: 0.5s;
@@ -185,8 +100,6 @@
             float: left;
             margin: 5px;
         }
-
-
 
         #colour-variations li a[data-theme="style"] {
             background: #8dc63f;
@@ -278,24 +191,13 @@
     </style>
     <!-- End demo purposes only -->
 
-
     <!-- Modernizr JS -->
     <script src="js/modernizr-2.6.2.min.js"></script>
-    <!-- FOR IE9 below -->
-    <!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
 
 </head>
 
-<!-- 
-		INFO:
-		Add 'boxed' class to body element to make the layout as boxed style.
-		Example: 
-		<body class="boxed">	
-	-->
 
-<body onload="ProductsRead()">
+<body onload="ClientOnLoad()">
     <!-- Loader -->
     <div class="fh5co-loader"></div>
     <div id="fh5co-page">
@@ -303,30 +205,45 @@
             <div class="container">
                 <div class="row row-bottom-padded-sm">
                     <div class="col-md-6 col-md-offset-3 text-center animate-box">
-                        <div class="fh5co-label">DURAPISO</div>
-                        <h2 class="fh5co-lead">Catalogo Productos</h2>
-                        <!-- <button onclick="ProductsRead()" type="button" class="btn btn-primary" id="btnLoad">Cargar
-                            Productos</button> -->
-
-                        <button type="menu" class="btn btn-primary" id="btnAdd"><a href="./productcreate.html"
-                                style="text-decoration:none;color:white;">Agregar</a> </button>
-                        <button onclick="ProductsDelete()" type="button" class="btn btn-danger" id="btnDelete"
-                            style="visibility:  hidden;">Borrar</button>
-                        <button onclick="ProductUpdate()" type="menu" class="btn btn-warning" id="btnUpdate" style="visibility: hidden;"><a
-                                href="./productcreate.html" style="text-decoration:none;color:white;">Modificar</a>
-                        </button>
+                        <h3 class="fh5co-lead"><a href="backofficeclients.html"> Regresar</a></h3>
+                        <div class="fh5co-label">CREAR / MODIFICAR CLIENTES</div>
+                        <hr>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-10 col-md-offset-2 animate-box">
-                        <!-- <ul> -->
-                        <div id="divResultCatalogProduct">
-                            <!-- <li><input type="checkbox" id="cb2" />
-                                <label for="cb2" data-toggle="tooltip" title="Tooltip on top"><img
-                                        src="http://lorempixel.com/101/101" /></label>
-                            </li> -->
-                        </div>
-                        <!-- </ul> -->
+                        <form id="ClientCreateUpdate">
+                            <div class="form-group">
+                                <input id="clientid" name="id" type="hidden" value="">
+                                <input id="clientstatus" name="status_item" type="hidden" value="4">
+
+                                <img id="imgPreview"
+                                    src="http://pageone.ph/wp-content/uploads/2017/04/2017-04-05-Gizmos-Say-Goodbye-To-The-Iconic-Twitter-Egg-Profile-.png"
+                                    width="85px" height="85px" alt="img" class="img-thumbnail">
+
+                                <label for="txtImg">Imagen</label>
+                                <input name="imgurl" type="text" class="form-control" id="txtImg"
+                                    aria-describedby="emailHelp" placeholder="URL Imagen">
+                                <small id="emailHelp" onmouseover="PreviewImage()" class="form-text text-muted">
+                                    Visualizar</small>
+                            </div>
+
+                            <div class="form-group">
+
+                                <label for="txtName">Nombre</label>
+                                <input name="name" type="text" class="form-control" id="txtName"
+                                    placeholder="Nombre">
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="txtDescription">Descripción</label>
+                                <input name="description" type="text" class="form-control" id="txtDescription"
+                                    placeholder="Descripción">
+                            </div>
+                            
+                            <button type="button" class="btn btn-primary" onclick="ClientAdd()">Agregar</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -340,20 +257,35 @@
         <a class="option-toggle"><i class="icon-gear"></i></a>
         <h3>Preset Colors</h3>
         <ul>
-            <li><a href="javascript: void(0);" data-theme="style"></a></li>
-            <li><a href="javascript: void(0);" data-theme="red"></a></li>
-            <li><a href="javascript: void(0);" data-theme="turquoise"></a></li>
-            <li><a href="javascript: void(0);" data-theme="blue"></a></li>
-            <li><a href="javascript: void(0);" data-theme="orange"></a></li>
-            <li><a href="javascript: void(0);" data-theme="yellow"></a></li>
-            <li><a href="javascript: void(0);" data-theme="pink"></a></li>
-            <li><a href="javascript: void(0);" data-theme="purple"></a></li>
+            <li>
+                <a href="javascript: void(0);" data-theme="style"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="red"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="turquoise"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="blue"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="orange"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="yellow"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="pink"></a>
+            </li>
+            <li>
+                <a href="javascript: void(0);" data-theme="purple"></a>
+            </li>
         </ul>
         <a href="#" data-layout="boxed">Boxed</a>
         <a href="#" data-layout="wide">Wide</a>
     </div>
     <!-- End demo purposes only -->
-
 
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
@@ -371,8 +303,6 @@
 
     <!-- For demo purposes only styleswitcher ( You may delete this anytime ) -->
     <script src="js/jquery.style.switcher.js"></script>
-
-    <script src="js/durapiso.controller.js"></script>
 
 
     <script>
@@ -396,10 +326,10 @@
     <script src="js/main.js"></script>
 
     <!-- 
-	INFO:
-	jQuery Cookie for Demo Purposes Only. 
-	The code below is to toggle the layout to boxed or wide 
-	-->
+    INFO:
+    jQuery Cookie for Demo Purposes Only. 
+    The code below is to toggle the layout to boxed or wide 
+    -->
     <script src="js/jquery.cookie.js"></script>
     <script>
         $(function () {
@@ -410,27 +340,24 @@
 
             $('a[data-layout="boxed"]').click(function (event) {
                 event.preventDefault();
-                $.cookie('layoutCookie', 'boxed', { expires: 7, path: '/' });
+                $.cookie('layoutCookie', 'boxed', {
+                    expires: 7,
+                    path: '/'
+                });
                 $('body').addClass($.cookie('layoutCookie')); // the value is boxed.
             });
 
             $('a[data-layout="wide"]').click(function (event) {
                 event.preventDefault();
                 $('body').removeClass($.cookie('layoutCookie')); // the value is boxed.
-                $.removeCookie('layoutCookie', { path: '/' }); // remove the value of our cookie 'layoutCookie'
-            });
-
-            $('[data-toggle="tooltip"]').tooltip();
-
-            $(document).on('mouseenter', '[data-toggle="tooltip"]', function () {
-                $(this).tooltip('show');
-            });
-
-            $(document).on('mouseleave', '[data-toggle="tooltip"]', function () {
-                $(this).tooltip('hide');
+                $.removeCookie('layoutCookie', {
+                    path: '/'
+                }); // remove the value of our cookie 'layoutCookie'
             });
         });
     </script>
+
+    <script src="js/durapiso.backofficeclients.controller.js"></script>
 
 </body>
 

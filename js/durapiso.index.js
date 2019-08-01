@@ -318,7 +318,7 @@ function ProductAdd() {
                 document.getElementById("ProductCreateUpdate").reset();
 
                 alert("Producto Agregado");
-                location.href = "./productcatalog.html";
+                location.href = "./backofficeproductcatalog.html";
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert(jqXHR.statusText);
@@ -359,7 +359,7 @@ function ProductAdd() {
             complete: function (jqXHR, textStatus) {
                 document.getElementById("ProductCreateUpdate").reset();
                 alert("Producto Agregado");
-                location.href = "./productcatalog.html";
+                location.href = "./backofficeproductcatalog.html";
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert(jqXHR.statusText);
