@@ -87,6 +87,7 @@ function PreviewImage() {
         document.getElementById('imgPreview').src = tmpimg;
     }
 }
+
 function ProductOnLoad() {
     // debugger;
     let tmplistproduct = sessionStorage.getItem('productupdate');

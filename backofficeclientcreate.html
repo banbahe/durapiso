@@ -40,7 +40,6 @@
     <link rel="stylesheet" id="theme-switch" href="css/style.css">
 
     <style>
-
         #colour-variations {
             padding: 10px;
             -webkit-transition: 0.5s;
@@ -229,19 +228,36 @@
                             </div>
 
                             <div class="form-group">
-
                                 <label for="txtName">Nombre</label>
-                                <input name="name" type="text" class="form-control" id="txtName"
-                                    placeholder="Nombre">
-
+                                <input name="name" type="text" class="form-control" id="txtName" placeholder="Nombre">
                             </div>
 
+                            <div class="form-group">
+                                <label for="txtLastName">Apellido</label>
+                                <input name="lastname" type="text" class="form-control" id="txtLastName" placeholder="Apellido">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="txtEmail">Email</label>
+                                <input name="email" type="email" class="form-control" id="txtEmail" placeholder="Email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="txtMobil">Telefono</label>
+                                <input name="mobil" type="number" class="form-control" id="txtMobil" placeholder="Telefono">
+                            </div>
+                            
                             <div class="form-group">
                                 <label for="txtDescription">Descripción</label>
                                 <input name="description" type="text" class="form-control" id="txtDescription"
                                     placeholder="Descripción">
                             </div>
-                            
+
+                            <div class="form-group">
+                                <label for="txtFeedback">Comentarios</label>
+                                <input name="feedback" type="text" class="form-control" id="txtFeedback" placeholder="Comentarios">
+                            </div>
+
                             <button type="button" class="btn btn-primary" onclick="ClientAdd()">Agregar</button>
                         </form>
                     </div>
