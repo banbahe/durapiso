@@ -219,10 +219,11 @@ function UsersReadCallback() {
     listUsers.map(item => {
         tmpRender += `
          <li> <input type="checkbox" id="cb${item.id}" onchange="ClientAction('${item.id}')" />
-         <label  for="cb${item.id}" data-toggle="tooltip" title='${item.description}'><img
+         <label  for="cb${item.id}" data-toggle="tooltip" title='${item.name} : ${item.email} '><img
                  src="${item.imgurl}" /></label>
      </li>`;
     });
+
     $("#divResultCatalog").html(tmpRender);
 }
 
@@ -239,7 +240,6 @@ function UsersRead() {
         url: endpoint,
         async: true,
         beforeSend: function (xhr) {
-            console.log(xhr);
         },
         success: function (data, textStatus, jqXHR) {
 
