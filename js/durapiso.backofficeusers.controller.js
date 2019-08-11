@@ -1,10 +1,16 @@
 // const uriservice = "https://durapisoservice.herokuapp.com/";
 const uriservice = "http://localhost:5000/";
-const sessionmaker = "WEBAPP";
 
 // user start
 let listUsers = [];
 let listUsersSelected = [];
+
+function GetCredentials() {
+    let tmpuser = JSON.parse(sessionStorage.getItem('usersigned'));
+    if (tmpuser.id !== null || typeof (tmpuser.id) !== undefined) { return tmpuser } else {
+        location.href = "./login.html";
+    }
+}
 
 function getFormData($form) {
     let unindexed_array = $form.serializeArray();
@@ -24,16 +30,16 @@ function PreviewImage() {
     }
 }
 
-function ClientAdd() {
-    let $form = $("#ClientCreateUpdate");
+function UserAdd() {
+    let $form = $("#UserCreateUpdate");
     let data = getFormData($form);
-    data.maker = sessionmaker;
+    data.maker = GetCredentials().id;
+    
     let endpoint = "";
-    let client = {};
+    let user = {};
 
     if (data.id.length > 0) {
-
-        endpoint = uriservice + "api/clients/" + data.id;
+        endpoint = uriservice + "api/users/" + data.id;
         $.ajax({
             type: "PATCH",
             dataType: "json",
@@ -41,69 +47,52 @@ function ClientAdd() {
             async: true,
             data: data,
             beforeSend: function (xhr) {
-                sessionStorage.setItem('clientupdate', "");
+                sessionStorage.setItem('userupdate', "");
             },
             success: function (data, textStatus, jqXHR) {
                 if (typeof data !== "undefined") {
                     let datatmp = JSON.parse(data.result);
-                    client = {
+                    user = {
                         status_item: datatmp.name,
+                        create_date: datatmp.create_date,
                         modification_date: datatmp.modification_date,
                         maker: datatmp.maker,
-                        description: datatmp.description,
-                        imgurl: datatmp.imgurl,
                         name: datatmp.name,
-                        lastname: datatmp.lastname,
                         email: datatmp.email,
-                        mobil: datatmp.mobil,
-                        feedback: datatmp.feedback
+                        password: datatmp.password,
+                        description: datatmp.description,
+                        imgurl: datatmp.imgurl
                     };
                 }
             },
             complete: function (jqXHR, textStatus) {
-                sessionStorage.setItem('clientupdate', "");
-                document.getElementById("ClientCreateUpdate").reset();
-                alert("Cliente Modificado");
-                location.href = "./backofficeclients.html";
+                document.getElementById("UserCreateUpdate").reset();
+                alert(`Usuario  Modificado`);
+                location.href = "./backofficeusers.html";
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert(jqXHR.statusText);
             }
         });
     } else {
-
-        endpoint = uriservice + "api/clients";
+        endpoint = uriservice + "api/users";
+        debugger;
         $.ajax({
             type: "POST",
             dataType: "json",
             url: endpoint,
             async: true,
             data: data,
-            beforeSend: function (xhr) {
-                // xhr.setRequestHeader("Authorization", token);
-            },
+            beforeSend: function (xhr) {},
             success: function (data, textStatus, jqXHR) {
-
                 if (typeof data !== "undefined") {
-                    let datatmp = JSON.parse(data.result);
-                    client = {
-                        status_item: datatmp.name,
-                        modification_date: datatmp.modification_date,
-                        maker: datatmp.maker,
-                        description: datatmp.description,
-                        imgurl: datatmp.imgurl,
-                        name: datatmp.name,
-                        lastname: datatmp.lastname,
-                        email: datatmp.email,
-                        mobil: datatmp.mobil,
-                        feedback: datatmp.feedback
-                    };
+                    console.dir(data.result);
                 }
             },
             complete: function (jqXHR, textStatus) {
-                document.getElementById("ClientCreateUpdate").reset();
-                alert("Cliente Agregado");
-                location.href = "./backofficeclients.html";
+                document.getElementById("UserCreateUpdate").reset();
+                alert("Usuario Agregado");
+                location.href = "./backofficeusers.html";
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert(jqXHR.statusText);
@@ -113,7 +102,7 @@ function ClientAdd() {
 }
 
 function ClientOnLoad() {
-    // debugger;
+    
     let tmplistclient = sessionStorage.getItem('clientupdate');
     // if (typeof tmplistclient != '' || typeof tmplistclient != 'undefined' || typeof tmplistclient != undefined || tmplistclient != null) {
     if (tmplistclient != null) {
@@ -124,7 +113,7 @@ function ClientOnLoad() {
 
 function ClientFillForm(client) {
     try {
-        debugger;
+        
         document.getElementById('clientid').value = client.id;
         document.getElementById('clientstatus').value = client.status_item;
         document.getElementById('txtImg').value = client.imgurl;

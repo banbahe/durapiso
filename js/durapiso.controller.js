@@ -9,6 +9,7 @@ function ProductUpdate() {
     sessionStorage.setItem('productupdate', "");
     sessionStorage.setItem('productupdate', JSON.stringify(listProduct));
 }
+
 function ProductsDelete() {
 
     for (let index = 0; index < listProduct.length; index++) {
@@ -300,40 +301,46 @@ function ProductsRead() {
 
 }
 function UserLogin() {
-    // alert("test");
+    
     let $form = $("#UserLogin");
     let data = getFormData($form);
-
     let endpoint = uriservice + "api/login";
-    //  let tmpData = JSON.stringify(tmpuser);
+    let user = {};
+
     $.ajax({
         type: "POST",
         dataType: "json",
         url: endpoint,
         async: true,
         data: data,
-        beforeSend: function (xhr) {
-        },
+        beforeSend: function (xhr) { },
         success: function (data, textStatus, jqXHR) {
 
             if (typeof data !== "undefined") {
                 let datatmp = JSON.parse(data.result);
                 user = {
+                    id: datatmp._id,
                     status_item: datatmp.name,
                     create_date: datatmp.parentResourceId,
                     modification_date: datatmp.modification_date,
                     maker: datatmp.maker,
                     name: datatmp.name,
+                    email: datatmp.email,
+                    //password: datatmp.password,
                     description: datatmp.description,
-                    imgurl: datatmp.imgurl,
+                    imgurl: datatmp.imgurl
                 };
             }
         },
         complete: function (jqXHR, textStatus) {
             if (jqXHR.statusText == "Not Found") {
                 document.getElementById("UserLogin").reset();
-                alert("verificar usuario y contraseña");
+                alert("Verificar usuario y contraseña");
             } else {
+                // TODO
+                sessionStorage.setItem('usersigned', '');
+                sessionStorage.setItem('usersigned', JSON.stringify(user));
+                debugger;
                 location.href = "./backofficemainmenu.html";
             }
         },

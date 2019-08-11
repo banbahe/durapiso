@@ -7,20 +7,9 @@
     <title>Durapiso</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="github.com/reypila" />
+    
 
-    <meta property="og:title" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:site_name" content="" />
-    <meta property="og:description" content="" />
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:image" content="" />
-    <meta name="twitter:url" content="" />
-    <meta name="twitter:card" content="" />
-
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <link rel="shortcut icon" href="favicon.ico">
-
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,600,400italic,700' rel='stylesheet'
         type='text/css'>
 
@@ -34,12 +23,73 @@
     <link rel="stylesheet" href="css/magnific-popup.css">
     <!-- Bootstrap  -->
     <link rel="stylesheet" href="css/bootstrap.css">
-
     <link rel="stylesheet" href="css/style.css">
-
     <link rel="stylesheet" id="theme-switch" href="css/style.css">
 
     <style>
+        /*  start workaround*/
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        input[type="checkbox"][id^="cb"] {
+            display: none;
+        }
+
+        label {
+            border: 1px solid #fff;
+            padding: 10px;
+            display: block;
+            position: relative;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        label:before {
+            background-color: white;
+            color: white;
+            content: " ";
+            display: block;
+            border-radius: 50%;
+            border: 1px solid grey;
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 28px;
+            transition-duration: 0.4s;
+            transform: scale(0);
+        }
+
+        label img {
+            height: 100px;
+            width: 100px;
+            transition-duration: 0.2s;
+            transform-origin: 50% 50%;
+        }
+
+        :checked+label {
+            border-color: #ddd;
+        }
+
+        :checked+label:before {
+            content: "✓";
+            background-color: grey;
+            transform: scale(1);
+        }
+
+        :checked+label img {
+            transform: scale(0.9);
+            box-shadow: 0 0 5px #333;
+            z-index: -1;
+        }
+
         #colour-variations {
             padding: 10px;
             -webkit-transition: 0.5s;
@@ -99,6 +149,8 @@
             float: left;
             margin: 5px;
         }
+
+
 
         #colour-variations li a[data-theme="style"] {
             background: #8dc63f;
@@ -188,15 +240,11 @@
             outline: none;
         }
     </style>
-    <!-- End demo purposes only -->
-
-    <!-- Modernizr JS -->
     <script src="js/modernizr-2.6.2.min.js"></script>
 
 </head>
 
-
-<body onload="ClientOnLoad()">
+<body onload="UsersRead()">
     <!-- Loader -->
     <div class="fh5co-loader"></div>
     <div id="fh5co-page">
@@ -204,53 +252,24 @@
             <div class="container">
                 <div class="row row-bottom-padded-sm">
                     <div class="col-md-6 col-md-offset-3 text-center animate-box">
-                        <h3 class="fh5co-lead"><a href="backofficeclients.html"> Regresar</a></h3>
-                        <div class="fh5co-label">CREAR / MODIFICAR USUARIOS</div>
+                        <h3 class="fh5co-lead"><a href="backofficemainmenu.html"> Regresar</a></h3>
+                        <div class="fh5co-label">CATALOGO USUARIOS</div>
                         <hr>
+                        <button type="menu" class="btn btn-primary" id="btnAdd"><a href="./backofficeusercreate.html"
+                                style="text-decoration:none;color:white;">Agregar</a> </button>
+                        <button onclick="UserDelete()" type="button" class="btn btn-danger" id="btnDelete"
+                            style="visibility:  hidden;">Borrar</button>
+                        <button onclick="UserUpdate()" type="menu" class="btn btn-warning" id="btnUpdate"
+                            style="visibility: hidden;"><a href="./backofficeclientcreate.html"
+                                style="text-decoration:none;color:white;">Modificar</a>
+                        </button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-10 col-md-offset-2 animate-box">
-                        <form id="UserCreateUpdate">
-                            <div class="form-group">
-                                <input id="clientid" name="id" type="hidden" value="">
-                                <input id="clientstatus" name="status_item" type="hidden" value="4">
 
-                                <img id="imgPreview"
-                                    src="http://pageone.ph/wp-content/uploads/2017/04/2017-04-05-Gizmos-Say-Goodbye-To-The-Iconic-Twitter-Egg-Profile-.png"
-                                    width="85px" height="85px" alt="img" class="img-thumbnail">
-
-                                <label for="txtImg">Imagen</label>
-                                <input name="imgurl" type="text" class="form-control" id="txtImg"
-                                    aria-describedby="emailHelp" placeholder="URL Imagen">
-                                <small id="emailHelp" onmouseover="PreviewImage()" class="form-text text-muted">
-                                    Visualizar</small>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="txtName">Nombre</label>
-                                <input name="name" type="text" class="form-control" id="txtName" placeholder="Nombre">
-                            </div>
-
-                            
-
-                            <div class="form-group">
-                                <label for="txtEmail">Email</label>
-                                <input name="email" type="email" class="form-control" id="txtEmail" placeholder="Email">
-                            </div>
-
-                              <div class="form-group">
-                                <label for="txtPassword">Contraseña</label>
-                                <input name="password" type="password" class="form-control" id="txtPassword" placeholder="Contraseña">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="txtDescription">Descripción</label>
-                                <input name="description" type="text" class="form-control" id="txtDescription"
-                                    placeholder="Descripción">
-                            </div>
-                            <button type="button" class="btn btn-primary" onclick="UserAdd()">Agregar</button>
-                        </form>
+                        <div id="divResultCatalog">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -264,35 +283,20 @@
         <a class="option-toggle"><i class="icon-gear"></i></a>
         <h3>Preset Colors</h3>
         <ul>
-            <li>
-                <a href="javascript: void(0);" data-theme="style"></a>
-            </li>
-            <li>
-                <a href="javascript: void(0);" data-theme="red"></a>
-            </li>
-            <li>
-                <a href="javascript: void(0);" data-theme="turquoise"></a>
-            </li>
-            <li>
-                <a href="javascript: void(0);" data-theme="blue"></a>
-            </li>
-            <li>
-                <a href="javascript: void(0);" data-theme="orange"></a>
-            </li>
-            <li>
-                <a href="javascript: void(0);" data-theme="yellow"></a>
-            </li>
-            <li>
-                <a href="javascript: void(0);" data-theme="pink"></a>
-            </li>
-            <li>
-                <a href="javascript: void(0);" data-theme="purple"></a>
-            </li>
+            <li><a href="javascript: void(0);" data-theme="style"></a></li>
+            <li><a href="javascript: void(0);" data-theme="red"></a></li>
+            <li><a href="javascript: void(0);" data-theme="turquoise"></a></li>
+            <li><a href="javascript: void(0);" data-theme="blue"></a></li>
+            <li><a href="javascript: void(0);" data-theme="orange"></a></li>
+            <li><a href="javascript: void(0);" data-theme="yellow"></a></li>
+            <li><a href="javascript: void(0);" data-theme="pink"></a></li>
+            <li><a href="javascript: void(0);" data-theme="purple"></a></li>
         </ul>
         <a href="#" data-layout="boxed">Boxed</a>
         <a href="#" data-layout="wide">Wide</a>
     </div>
     <!-- End demo purposes only -->
+
 
     <!-- jQuery -->
     <script src="js/jquery.min.js"></script>
@@ -310,8 +314,6 @@
 
     <!-- For demo purposes only styleswitcher ( You may delete this anytime ) -->
     <script src="js/jquery.style.switcher.js"></script>
-
-
     <script>
         $(function () {
             $('#colour-variations ul').styleSwitcher({
@@ -327,16 +329,9 @@
             });
         });
     </script>
-    <!-- End demo purposes only -->
-
     <!-- Main JS (Do not remove) -->
     <script src="js/main.js"></script>
 
-    <!-- 
-    INFO:
-    jQuery Cookie for Demo Purposes Only. 
-    The code below is to toggle the layout to boxed or wide 
-    -->
     <script src="js/jquery.cookie.js"></script>
     <script>
         $(function () {
@@ -347,25 +342,28 @@
 
             $('a[data-layout="boxed"]').click(function (event) {
                 event.preventDefault();
-                $.cookie('layoutCookie', 'boxed', {
-                    expires: 7,
-                    path: '/'
-                });
+                $.cookie('layoutCookie', 'boxed', { expires: 7, path: '/' });
                 $('body').addClass($.cookie('layoutCookie')); // the value is boxed.
             });
 
             $('a[data-layout="wide"]').click(function (event) {
                 event.preventDefault();
                 $('body').removeClass($.cookie('layoutCookie')); // the value is boxed.
-                $.removeCookie('layoutCookie', {
-                    path: '/'
-                }); // remove the value of our cookie 'layoutCookie'
+                $.removeCookie('layoutCookie', { path: '/' }); // remove the value of our cookie 'layoutCookie'
+            });
+
+            $('[data-toggle="tooltip"]').tooltip();
+
+            $(document).on('mouseenter', '[data-toggle="tooltip"]', function () {
+                $(this).tooltip('show');
+            });
+
+            $(document).on('mouseleave', '[data-toggle="tooltip"]', function () {
+                $(this).tooltip('hide');
             });
         });
     </script>
-
     <script src="js/durapiso.backofficeusers.controller.js"></script>
-
 </body>
 
 </html>
