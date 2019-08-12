@@ -101,45 +101,43 @@ function UserAdd() {
     }
 }
 
-function ClientOnLoad() {
-    
-    let tmplistclient = sessionStorage.getItem('clientupdate');
-    // if (typeof tmplistclient != '' || typeof tmplistclient != 'undefined' || typeof tmplistclient != undefined || tmplistclient != null) {
-    if (tmplistclient != null) {
-        let tmpclient = JSON.parse(tmplistclient);
-        ClientFillForm(tmpclient[0]);
+function OnLoad() {
+    debugger;
+    let tmplist = sessionStorage.getItem('userupdate');
+    if (tmplist != null || tmplist.length > 0) {
+        sessionStorage.setItem('userupdate','');
+        let tmpobj = JSON.parse(tmplist);
+        FillForm(tmpobj[0]);
     }
 }
 
-function ClientFillForm(client) {
+function FillForm(paramobject) {
     try {
-        
-        document.getElementById('clientid').value = client.id;
-        document.getElementById('clientstatus').value = client.status_item;
-        document.getElementById('txtImg').value = client.imgurl;
-        document.getElementById('imgPreview').src = client.imgurl;
-        document.getElementById('txtName').value = client.name;
-        document.getElementById('txtDescription').value = client.description;
-        document.getElementById('txtLastName').value = client.lastname;
-        document.getElementById('txtEmail').value = client.email;
-        document.getElementById('txtMobil').value = client.mobil;
-        document.getElementById('txtFeedback').value = client.feedback;
+        document.getElementById('itemid').value = paramobject.id;
+        document.getElementById('itemstatus').value = paramobject.status_item;
+        document.getElementById('txtImg').value = paramobject.imgurl;
+        document.getElementById('imgPreview').src = paramobject.imgurl;
+        document.getElementById('txtName').value = paramobject.name;
+        document.getElementById('txtEmail').value = paramobject.email;
+        document.getElementById('txtPassword').value = paramobject.password;
+        document.getElementById('txtDescription').value = paramobject.description;
     } catch (error) {
-
+        console.log("User FillForm");
+        console.dir(error);
     }
 }
 
-function UserUpdate() {
-    sessionStorage.getItem('clientupdate');
-    sessionStorage.setItem('clientupdate', "");
-    sessionStorage.setItem('clientupdate', JSON.stringify(listClientSelected));
+function Update() {
+    sessionStorage.getItem('userupdate');
+    sessionStorage.setItem('userupdate', "");
+    sessionStorage.setItem('userupdate', JSON.stringify(listUsersSelected));
 }
 
 function UserDelete() {
-
-    for (let index = 0; index < listClientSelected.length; index++) {
-        let endpoint = uriservice + "api/users/" + listClientSelected[index].id;
-        const data = { maker: sessionmaker };
+    for (let index = 0; index < listUsersSelected.length; index++) {
+        let endpoint = uriservice + "api/users/" + listUsersSelected[index].id;
+        let tmpId =  GetCredentials().id;
+        const data = { maker: tmpId };
 
         $.ajax({
             type: "DELETE",
@@ -147,23 +145,13 @@ function UserDelete() {
             url: endpoint,
             async: true,
             data: data,
-            beforeSend: function (xhr) {
-                // xhr.setRequestHeader("Authorization", token);
-            },
-            success: function (data, textStatus, jqXHR) {
-
-                if (typeof data !== "undefined") {
-
-                    // window.location.href("about.html");
-                }
-            },
+            beforeSend: function (xhr) {},
+            success: function (data, textStatus, jqXHR) {},
             complete: function (jqXHR, textStatus) {
                 let tmpindex = index + 1;
-                if (tmpindex == listClientSelected.length) {
-
-                    ClientRead();
+                if (tmpindex == listUsersSelected.length) {
+                    UsersRead();
                 }
-
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert(jqXHR.statusText);
@@ -172,32 +160,31 @@ function UserDelete() {
     }
 }
 
-function ClientAction(tmpObject) {
-
+function UserAction(tmpObject) {
     let tmpelementid = "cb" + tmpObject;
     var toogle = document.getElementById(tmpelementid).checked;
     if (toogle) {
-        const resultado = listClient.find(item => item.id === tmpObject);
-        listClientSelected.push(resultado);
+        const resultado = listUsers.find(item => item.id === tmpObject);
+        listUsersSelected.push(resultado);
     } else {
-        for (var i = 0; i < listClientSelected.length; i++)
-            if (listClientSelected[i].id === tmpObject) {
-                listClientSelected.splice(i, 1);
+        for (var i = 0; i < listUsersSelected.length; i++)
+            if (listUsersSelected[i].id === tmpObject) {
+                listUsersSelected.splice(i, 1);
                 break;
             }
     }
 
-    if (listClientSelected.length == 0) {
+    if (listUsersSelected.length == 0) {
         document.getElementById("btnUpdate").style.visibility = "hidden";
         document.getElementById("btnDelete").style.visibility = "hidden";
     }
 
-    if (listClientSelected.length == 1) {
+    if (listUsersSelected.length == 1) {
         document.getElementById("btnUpdate").style.visibility = "visible";
         document.getElementById("btnDelete").style.visibility = "visible";
 
     }
-    if (listClientSelected.length > 1) {
+    if (listUsersSelected.length > 1) {
         document.getElementById("btnUpdate").style.visibility = "hidden";
         // document.getElementById("btnDelete").style.display = "block";
     }
@@ -207,7 +194,7 @@ function UsersReadCallback() {
     let tmpRender = '';
     listUsers.map(item => {
         tmpRender += `
-         <li> <input type="checkbox" id="cb${item.id}" onchange="ClientAction('${item.id}')" />
+         <li> <input type="checkbox" id="cb${item.id}" onchange="UserAction('${item.id}')" />
          <label  for="cb${item.id}" data-toggle="tooltip" title='${item.name} : ${item.email} '><img
                  src="${item.imgurl}" /></label>
      </li>`;

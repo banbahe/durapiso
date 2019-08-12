@@ -196,7 +196,7 @@
 </head>
 
 
-<body onload="ClientOnLoad()">
+<body onload="OnLoad()">
     <!-- Loader -->
     <div class="fh5co-loader"></div>
     <div id="fh5co-page">
@@ -204,17 +204,17 @@
             <div class="container">
                 <div class="row row-bottom-padded-sm">
                     <div class="col-md-6 col-md-offset-3 text-center animate-box">
-                        <h3 class="fh5co-lead"><a href="backofficeclients.html"> Regresar</a></h3>
+                        <h3 class="fh5co-lead"><a href="backofficeusers.html"> Regresar</a></h3>
                         <div class="fh5co-label">CREAR / MODIFICAR USUARIOS</div>
                         <hr>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-10 col-md-offset-2 animate-box">
-                        <form id="UserCreateUpdate">
+                        <form id="CreateUpdate">
                             <div class="form-group">
-                                <input id="clientid" name="id" type="hidden" value="">
-                                <input id="clientstatus" name="status_item" type="hidden" value="4">
+                                <input id="itemid" name="id" type="hidden" value="">
+                                <input id="itemstatus" name="status_item" type="hidden" value="4">
 
                                 <img id="imgPreview"
                                     src="http://pageone.ph/wp-content/uploads/2017/04/2017-04-05-Gizmos-Say-Goodbye-To-The-Iconic-Twitter-Egg-Profile-.png"
@@ -232,23 +232,32 @@
                                 <input name="name" type="text" class="form-control" id="txtName" placeholder="Nombre">
                             </div>
 
-                            
+                            <div class="form-group">
+                                <select class="form-control"> 
+                                    <option value="-1">Inactivo</option>
+                                    <option value="4">Activo</option>
+                                </select>
+                            </div>
+
+
 
                             <div class="form-group">
                                 <label for="txtEmail">Email</label>
                                 <input name="email" type="email" class="form-control" id="txtEmail" placeholder="Email">
                             </div>
 
-                              <div class="form-group">
+                            <div class="form-group">
                                 <label for="txtPassword">Contraseña</label>
-                                <input name="password" type="password" class="form-control" id="txtPassword" placeholder="Contraseña">
+                                <input name="password" type="password" class="form-control" id="txtPassword"
+                                    placeholder="Contraseña">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="txtDescription">Descripción</label>
                                 <input name="description" type="text" class="form-control" id="txtDescription"
                                     placeholder="Descripción">
                             </div>
+
                             <button type="button" class="btn btn-primary" onclick="UserAdd()">Agregar</button>
                         </form>
                     </div>
