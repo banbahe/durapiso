@@ -214,7 +214,7 @@
                         <form id="CreateUpdate">
                             <div class="form-group">
                                 <input id="itemid" name="id" type="hidden" value="">
-                                <input id="itemstatus" name="status_item" type="hidden" value="4">
+                                <!-- <input id="itemstatus" name="status_item" type="hidden" value="4"> -->
 
                                 <img id="imgPreview"
                                     src="http://pageone.ph/wp-content/uploads/2017/04/2017-04-05-Gizmos-Say-Goodbye-To-The-Iconic-Twitter-Egg-Profile-.png"
@@ -233,9 +233,9 @@
                             </div>
 
                             <div class="form-group">
-                                <select class="form-control"> 
+                                <select id="itemstatus" name="status_item" class="form-control"> 
                                     <option value="-1">Inactivo</option>
-                                    <option value="4">Activo</option>
+                                    <option value="4" selected>Activo</option>
                                 </select>
                             </div>
 
@@ -258,7 +258,7 @@
                                     placeholder="Descripción">
                             </div>
 
-                            <button type="button" class="btn btn-primary" onclick="UserAdd()">Agregar</button>
+                            <button type="button" class="btn btn-primary" onclick="Add()">Agregar</button>
                         </form>
                     </div>
                 </div>

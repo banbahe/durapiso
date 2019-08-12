@@ -30,8 +30,8 @@ function PreviewImage() {
     }
 }
 
-function UserAdd() {
-    let $form = $("#UserCreateUpdate");
+function Add() {
+    let $form = $("#CreateUpdate");
     let data = getFormData($form);
     data.maker = GetCredentials().id;
     
@@ -66,7 +66,7 @@ function UserAdd() {
                 }
             },
             complete: function (jqXHR, textStatus) {
-                document.getElementById("UserCreateUpdate").reset();
+                document.getElementById("CreateUpdate").reset();
                 alert(`Usuario  Modificado`);
                 location.href = "./backofficeusers.html";
             },
@@ -104,7 +104,7 @@ function UserAdd() {
 function OnLoad() {
     debugger;
     let tmplist = sessionStorage.getItem('userupdate');
-    if (tmplist != null || tmplist.length > 0) {
+    if (tmplist != null && tmplist.length > 0) {
         sessionStorage.setItem('userupdate','');
         let tmpobj = JSON.parse(tmplist);
         FillForm(tmpobj[0]);
@@ -114,13 +114,14 @@ function OnLoad() {
 function FillForm(paramobject) {
     try {
         document.getElementById('itemid').value = paramobject.id;
-        document.getElementById('itemstatus').value = paramobject.status_item;
+        // document.getElementById('itemstatus').value = paramobject.status_item;
         document.getElementById('txtImg').value = paramobject.imgurl;
         document.getElementById('imgPreview').src = paramobject.imgurl;
         document.getElementById('txtName').value = paramobject.name;
         document.getElementById('txtEmail').value = paramobject.email;
         document.getElementById('txtPassword').value = paramobject.password;
         document.getElementById('txtDescription').value = paramobject.description;
+        document.getElementById('itemstatus').value = paramobject.status_item;
     } catch (error) {
         console.log("User FillForm");
         console.dir(error);
