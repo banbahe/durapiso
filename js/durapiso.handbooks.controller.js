@@ -38,7 +38,7 @@ function Add() {
     let user = {};
 
     if (data.id.length > 0) {
-        endpoint = uriservice + "api/promotions/" + data.id;
+        endpoint = uriservice + "api/downloads/" + data.id;
         $.ajax({
             type: "PATCH",
             dataType: "json",
@@ -69,12 +69,12 @@ function Add() {
             complete: function (jqXHR, textStatus) {
                 document.getElementById("CreateUpdate").reset();
                 alert(`Modificado`);
-                location.href = "./backofficepromotions.html";
+                location.href = "./backofficehandbooks.html";
             },
             error: function (jqXHR, textStatus, errorThrown) { }
         });
     } else {
-        endpoint = uriservice + "api/promotions";
+        endpoint = uriservice + "api/downloads";
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -86,7 +86,7 @@ function Add() {
             complete: function (jqXHR, textStatus) {
                 document.getElementById("CreateUpdate").reset();
                 alert(" Agregado");
-                location.href = "./backofficepromotions.html";
+                location.href = "./backofficehandbooks.html";
             },
             error: function (jqXHR, textStatus, errorThrown) { }
         });
@@ -105,7 +105,7 @@ function Update() {
 
 function Delete() {
     for (let index = 0; index < listItemsSelected.length; index++) {
-        let endpoint = uriservice + "api/promotions/" + listItemsSelected[index].id;
+        let endpoint = uriservice + "api/downloads/" + listItemsSelected[index].id;
         let tmpId = GetCredentials().id;
         const data = { maker: tmpId };
 
@@ -164,8 +164,8 @@ function ReadCallback() {
     listItems.map(item => {
         tmpRender += `
          <li> <input type="checkbox" id="cb${item.id}" onchange="Action('${item.id}')" />
-         <label  for="cb${item.id}" data-toggle="tooltip" title='${item.name}  $ ${item.price} - $${item.offerprice}'><img
-                 src="${item.imgurl}" /></label>
+         <label  for="cb${item.id}" data-toggle="tooltip" title='${item.title} '><img
+                 src="https://reypila.github.io/durapiso/images/pdf.png" /></label>
      </li>`;
     });
 
@@ -176,25 +176,12 @@ function ReadCallback() {
 function FillForm(paramobject) {
     try {
         document.getElementById('itemid').value = paramobject.id;
-        document.getElementById('txtImg').value = paramobject.imgurl;
-        document.getElementById('imgPreview').src = paramobject.imgurl;
-        document.getElementById('txtName').value = paramobject.name;
-        document.getElementById('txtDescription').value = paramobject.description;
         document.getElementById('itemstatus').value = paramobject.status_item;
-        document.getElementById('txtPrice').value = paramobject.price;
-        document.getElementById('txtOfferprice').value = paramobject.offerprice;
-        //debugger;
-        let date = new Date(paramobject.start_date);
-        let res = date.toISOString();
-        res = res.substr(0, 10)
-        document.getElementById('txtStart_date').value = res;
-        date = new Date(paramobject.end_date);
-        res = date.toISOString();
-        res = res.substr(0, 10)
-        document.getElementById('txtEnd_date').value = res;
+        document.getElementById('txtTitle').value = paramobject.title;
+        document.getElementById('txtDescription').value = paramobject.description;
+        document.getElementById('txtPathurl').value = paramobject.pathurl;
     } catch (error) {
-        console.log("User FillForm");
-        console.dir(error);
+        console.log("ERROR.HANDBOOKS.CONTROLLER.FillForm");
     }
 }
 
@@ -230,17 +217,11 @@ function Read() {
                         create_date: datatmp.create_date,
                         modification_date: datatmp.modification_date,
                         maker: datatmp.maker,
-                        name: datatmp.name,
-                        imgurl: datatmp.imgurl,
+                        title: datatmp.title,
                         description: datatmp.description,
-                        price: datatmp.price,
-                        offerprice: datatmp.offerprice,
-                        start_date: datatmp.start_date,
-                        end_date: datatmp.end_date
+                        pathurl: datatmp.pathurl
                     };
-
                     listItems.push(tmp);
-
                 });
             }
         },
