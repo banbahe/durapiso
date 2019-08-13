@@ -1,9 +1,8 @@
 const uriservice = "https://durapisoservice.herokuapp.com/";
 
-
 // user start
-let listUsers = [];
-let listUsersSelected = [];
+let listItems = [];
+let listItemsSelected = [];
 
 function GetCredentials() {
     let tmpuser = JSON.parse(sessionStorage.getItem('usersigned'));
@@ -34,12 +33,12 @@ function Add() {
     let $form = $("#CreateUpdate");
     let data = getFormData($form);
     data.maker = GetCredentials().id;
-    
+
     let endpoint = "";
     let user = {};
 
     if (data.id.length > 0) {
-        endpoint = uriservice + "api/users/" + data.id;
+        endpoint = uriservice + "api/promotions/" + data.id;
         $.ajax({
             type: "PATCH",
             dataType: "json",
@@ -47,7 +46,7 @@ function Add() {
             async: true,
             data: data,
             beforeSend: function (xhr) {
-                sessionStorage.setItem('userupdate', "");
+                sessionStorage.setItem('promotionsupdate', "");
             },
             success: function (data, textStatus, jqXHR) {
                 if (typeof data !== "undefined") {
@@ -58,34 +57,36 @@ function Add() {
                         modification_date: datatmp.modification_date,
                         maker: datatmp.maker,
                         name: datatmp.name,
-                        email: datatmp.email,
-                        password: datatmp.password,
+                        imgurl: datatmp.imgurl,
                         description: datatmp.description,
-                        imgurl: datatmp.imgurl
+                        price: datatmp.price,
+                        offerprice: datatmp.offerprice,
+                        start_date: datatmp.start_date,
+                        end_date: datatmp.end_date
                     };
                 }
             },
             complete: function (jqXHR, textStatus) {
                 document.getElementById("CreateUpdate").reset();
-                alert(`Usuario  Modificado`);
-                location.href = "./backofficeusers.html";
+                alert(`Modificado`);
+                location.href = "./backofficepromotions.html";
             },
             error: function (jqXHR, textStatus, errorThrown) { }
         });
     } else {
-        endpoint = uriservice + "api/users";
+        endpoint = uriservice + "api/promotions";
         $.ajax({
             type: "POST",
             dataType: "json",
             url: endpoint,
             async: true,
             data: data,
-            beforeSend: function (xhr) {},
+            beforeSend: function (xhr) { },
             success: function (data, textStatus, jqXHR) { },
             complete: function (jqXHR, textStatus) {
                 document.getElementById("CreateUpdate").reset();
-                alert("Usuario Agregado");
-                location.href = "./backofficeusers.html";
+                alert(" Agregado");
+                location.href = "./backofficepromotions.html";
             },
             error: function (jqXHR, textStatus, errorThrown) { }
         });
@@ -93,9 +94,9 @@ function Add() {
 }
 
 function OnLoad() {
-    let tmplist = sessionStorage.getItem('userupdate');
+    let tmplist = sessionStorage.getItem('promotionsupdate');
     if (tmplist != null && tmplist.length > 0) {
-        sessionStorage.setItem('userupdate','');
+        sessionStorage.setItem('promotionsupdate', '');
         let tmpobj = JSON.parse(tmplist);
         FillForm(tmpobj[0]);
     }
@@ -107,10 +108,19 @@ function FillForm(paramobject) {
         document.getElementById('txtImg').value = paramobject.imgurl;
         document.getElementById('imgPreview').src = paramobject.imgurl;
         document.getElementById('txtName').value = paramobject.name;
-        document.getElementById('txtEmail').value = paramobject.email;
-        document.getElementById('txtPassword').value = paramobject.password;
         document.getElementById('txtDescription').value = paramobject.description;
         document.getElementById('itemstatus').value = paramobject.status_item;
+        document.getElementById('txtPrice').value = paramobject.price;
+        document.getElementById('txtOfferprice').value = paramobject.offerprice;
+        //debugger;
+        let date = new Date(paramobject.start_date);
+        let res = date.toISOString();
+        res = res.substr(0, 10)
+        document.getElementById('txtStart_date').value = res;
+        date = new Date(paramobject.end_date);
+        res = date.toISOString();
+        res = res.substr(0, 10)
+        document.getElementById('txtEnd_date').value = res;
     } catch (error) {
         console.log("User FillForm");
         console.dir(error);
@@ -118,15 +128,15 @@ function FillForm(paramobject) {
 }
 
 function Update() {
-    sessionStorage.getItem('userupdate');
-    sessionStorage.setItem('userupdate', "");
-    sessionStorage.setItem('userupdate', JSON.stringify(listUsersSelected));
+    sessionStorage.getItem('promotionsupdate');
+    sessionStorage.setItem('promotionsupdate', "");
+    sessionStorage.setItem('promotionsupdate', JSON.stringify(listItemsSelected));
 }
 
-function UserDelete() {
-    for (let index = 0; index < listUsersSelected.length; index++) {
-        let endpoint = uriservice + "api/users/" + listUsersSelected[index].id;
-        let tmpId =  GetCredentials().id;
+function Delete() {
+    for (let index = 0; index < listItemsSelected.length; index++) {
+        let endpoint = uriservice + "api/promotions/" + listItemsSelected[index].id;
+        let tmpId = GetCredentials().id;
         const data = { maker: tmpId };
 
         $.ajax({
@@ -135,12 +145,13 @@ function UserDelete() {
             url: endpoint,
             async: true,
             data: data,
-            beforeSend: function (xhr) {},
-            success: function (data, textStatus, jqXHR) {},
+            beforeSend: function (xhr) { },
+            success: function (data, textStatus, jqXHR) { },
             complete: function (jqXHR, textStatus) {
                 let tmpindex = index + 1;
-                if (tmpindex == listUsersSelected.length) {
-                    UsersRead();
+                if (tmpindex == listItemsSelected.length) {
+                    alert('Elemento inactivo');
+                    Read();
                 }
             },
             error: function (jqXHR, textStatus, errorThrown) { }
@@ -148,42 +159,42 @@ function UserDelete() {
     }
 }
 
-function UserAction(tmpObject) {
+function Action(tmpObject) {
     let tmpelementid = "cb" + tmpObject;
     var toogle = document.getElementById(tmpelementid).checked;
     if (toogle) {
-        const resultado = listUsers.find(item => item.id === tmpObject);
-        listUsersSelected.push(resultado);
+        const resultado = listItems.find(item => item.id === tmpObject);
+        listItemsSelected.push(resultado);
     } else {
-        for (var i = 0; i < listUsersSelected.length; i++)
-            if (listUsersSelected[i].id === tmpObject) {
-                listUsersSelected.splice(i, 1);
+        for (var i = 0; i < listItemsSelected.length; i++)
+            if (listItemsSelected[i].id === tmpObject) {
+                listItemsSelected.splice(i, 1);
                 break;
             }
     }
 
-    if (listUsersSelected.length == 0) {
+    if (listItemsSelected.length == 0) {
         document.getElementById("btnUpdate").style.visibility = "hidden";
         document.getElementById("btnDelete").style.visibility = "hidden";
     }
 
-    if (listUsersSelected.length == 1) {
+    if (listItemsSelected.length == 1) {
         document.getElementById("btnUpdate").style.visibility = "visible";
         document.getElementById("btnDelete").style.visibility = "visible";
 
     }
-    if (listUsersSelected.length > 1) {
+    if (listItemsSelected.length > 1) {
         document.getElementById("btnUpdate").style.visibility = "hidden";
         // document.getElementById("btnDelete").style.display = "block";
     }
 }
 
-function UsersReadCallback() {
+function ReadCallback() {
     let tmpRender = '';
-    listUsers.map(item => {
+    listItems.map(item => {
         tmpRender += `
-         <li> <input type="checkbox" id="cb${item.id}" onchange="UserAction('${item.id}')" />
-         <label  for="cb${item.id}" data-toggle="tooltip" title='${item.name} : ${item.email} '><img
+         <li> <input type="checkbox" id="cb${item.id}" onchange="Action('${item.id}')" />
+         <label  for="cb${item.id}" data-toggle="tooltip" title='${item.name}  $ ${item.price} - $${item.offerprice}'><img
                  src="${item.imgurl}" /></label>
      </li>`;
     });
@@ -191,20 +202,19 @@ function UsersReadCallback() {
     $("#divResultCatalog").html(tmpRender);
 }
 
-//  onload users read
-function UsersRead() {
+//  onload promotions read
+function Read() {
 
-    listUsers = [];
-    listUsersSelected = [];
-    let endpoint = uriservice + "api/users";
+    listItems = [];
+    listItemsSelected = [];
+    let endpoint = uriservice + "api/promotions";
 
     $.ajax({
         type: "GET",
         dataType: "json",
         url: endpoint,
         async: true,
-        beforeSend: function (xhr) {
-        },
+        beforeSend: function (xhr) { },
         success: function (data, textStatus, jqXHR) {
 
             if (typeof data !== "undefined") {
@@ -218,25 +228,27 @@ function UsersRead() {
                         modification_date: datatmp.modification_date,
                         maker: datatmp.maker,
                         name: datatmp.name,
-                        email: datatmp.email,
-                        password: datatmp.password,
+                        imgurl: datatmp.imgurl,
                         description: datatmp.description,
-                        imgurl: datatmp.imgurl
+                        price: datatmp.price,
+                        offerprice: datatmp.offerprice,
+                        start_date: datatmp.start_date,
+                        end_date: datatmp.end_date
                     };
 
-                    listUsers.push(tmp);
+                    listItems.push(tmp);
 
                 });
             }
         },
         complete: function (jqXHR, textStatus) {
-            if (listUsers.length > 0) {
-                UsersReadCallback();
+            if (listItems.length > 0) {
+                ReadCallback();
+            } else {
+                alert("Vacío ");
             }
         },
-        error: function (jqXHR, textStatus, errorThrown) {
-            // alert(jqXHR.statusText);
-        }
+        error: function (jqXHR, textStatus, errorThrown) { }
     });
 }
-// usert end
+

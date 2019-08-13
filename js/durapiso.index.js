@@ -1,5 +1,5 @@
 const uriservice = "https://durapisoservice.herokuapp.com/";
-// const uriservice = "http://localhost:5000/";
+
 let listProduct = [];
 let products = [];
 
