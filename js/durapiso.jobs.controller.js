@@ -52,7 +52,7 @@ function Add() {
                         maker: datatmp.maker,
                         name: datatmp.name,
                         description: datatmp.description,
-                        pathurl: datatmp.imgurl
+                        pathurl: datatmp.pathurl
                     };
                 }
             },
@@ -205,7 +205,7 @@ function Read() {
                         maker: datatmp.maker,
                         name: datatmp.name,
                         description: datatmp.description,
-                        pathurl: datatmp.path
+                        pathurl: datatmp.pathurl
                     };
 
                     listItems.push(tmp);
