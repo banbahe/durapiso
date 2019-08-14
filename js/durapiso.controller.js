@@ -27,10 +27,7 @@ function ProductsDelete() {
             },
             success: function (data, textStatus, jqXHR) {
 
-                if (typeof data !== "undefined") {
-                    console.dir(data);
-                    // window.location.href("about.html");
-                }
+                if (typeof data !== "undefined") {}
             },
             complete: function (jqXHR, textStatus) {
                 let tmpindex = index + 1;
