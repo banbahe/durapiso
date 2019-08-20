@@ -10,6 +10,7 @@ const sessionmaker = "LANDINGPAGE";
 // star LANDING PAGE
 OnStart();
 
+
 function ClientsCurrent() {
 
     for (let index = 0; index < clients.length; index++) {
@@ -19,7 +20,51 @@ function ClientsCurrent() {
     }
 
 }
+// start downloads
+function DownloadsRead() {
+    // debugger;
+    listDownloads = [];
+    downloads = [];
 
+    let endpoint = uriservice + "api/downloads/4/filter";
+    //  let tmpData = JSON.stringify(tmpuser);
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: endpoint,
+        async: true,
+        beforeSend: function (xhr) {},
+        success: function (data, textStatus, jqXHR) {
+
+            if (typeof data !== "undefined") {
+                let adata = JSON.parse(data.result);
+                //                debugger;
+                adata.map(datatmp => {
+                    let tmpproduct = {
+                        id: datatmp._id,
+                        status_item: datatmp.status_item,
+                        create_date: datatmp.create_date,
+                        modification_date: datatmp.modification_date,
+                        maker: datatmp.maker,
+                        name: datatmp.name,
+                        description: datatmp.description,
+                        pathurl: datatmp.pathurl,
+                    };
+                    products.push(tmpproduct);
+                });
+            }
+        },
+        complete: function (jqXHR, textStatus) {
+            ProductsReadCallBack(products);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.statusText);
+        }
+    });
+}
+
+// end downloads
 // CLIENTS 
 function ClientsReadCallBack(clients) {
     console.dir(clients);
@@ -147,6 +192,8 @@ function ProductsRead() {
 function OnStart() {
     ProductsRead();
     ClientsRead();
+    DownloadRead();
+
 }
 // end LANDING PAGE
 function ProductUpdate() {

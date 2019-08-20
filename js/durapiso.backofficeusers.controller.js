@@ -16,7 +16,7 @@ function getFormData($form) {
     let unindexed_array = $form.serializeArray();
     let indexed_array = {};
 
-    $.map(unindexed_array, function (n, i) {
+    $.map(unindexed_array, function (n, _i) {
         indexed_array[n['name']] = n['value'];
     });
 
@@ -46,10 +46,10 @@ function Add() {
             url: endpoint,
             async: true,
             data: data,
-            beforeSend: function (xhr) {
+            beforeSend: function (_xhr) {
                 sessionStorage.setItem('userupdate', "");
             },
-            success: function (data, textStatus, jqXHR) {
+            success: function (data, _textStatus, _jqXHR) {
                 if (typeof data !== "undefined") {
                     let datatmp = JSON.parse(data.result);
                     user = {
@@ -65,12 +65,12 @@ function Add() {
                     };
                 }
             },
-            complete: function (jqXHR, textStatus) {
+            complete: function (_jqXHR, _textStatus) {
                 document.getElementById("CreateUpdate").reset();
                 alert(`Usuario  Modificado`);
                 location.href = "./backofficeusers.html";
             },
-            error: function (jqXHR, textStatus, errorThrown) { }
+            error: function (_jqXHR, _textStatus, _errorThrown) { }
         });
     } else {
         endpoint = uriservice + "api/users";
@@ -80,14 +80,14 @@ function Add() {
             url: endpoint,
             async: true,
             data: data,
-            beforeSend: function (xhr) {},
-            success: function (data, textStatus, jqXHR) { },
-            complete: function (jqXHR, textStatus) {
+            beforeSend: function (_xhr) {},
+            success: function (_data, _textStatus, _jqXHR) { },
+            complete: function (_jqXHR, _textStatus) {
                 document.getElementById("CreateUpdate").reset();
                 alert("Usuario Agregado");
                 location.href = "./backofficeusers.html";
             },
-            error: function (jqXHR, textStatus, errorThrown) { }
+            error: function (_jqXHR, _textStatus, _errorThrown) { }
         });
     }
 }
@@ -135,15 +135,15 @@ function UserDelete() {
             url: endpoint,
             async: true,
             data: data,
-            beforeSend: function (xhr) {},
-            success: function (data, textStatus, jqXHR) {},
-            complete: function (jqXHR, textStatus) {
+            beforeSend: function (_xhr) {},
+            success: function (_data, _textStatus, _jqXHR) {},
+            complete: function (_jqXHR, _textStatus) {
                 let tmpindex = index + 1;
                 if (tmpindex == listUsersSelected.length) {
                     UsersRead();
                 }
             },
-            error: function (jqXHR, textStatus, errorThrown) { }
+            error: function (_jqXHR, _textStatus, _errorThrown) { }
         });
     }
 }
@@ -203,9 +203,9 @@ function UsersRead() {
         dataType: "json",
         url: endpoint,
         async: true,
-        beforeSend: function (xhr) {
+        beforeSend: function (_xhr) {
         },
-        success: function (data, textStatus, jqXHR) {
+        success: function (data, _textStatus, _jqXHR) {
 
             if (typeof data !== "undefined") {
                 let adata = JSON.parse(data.result);
@@ -229,12 +229,12 @@ function UsersRead() {
                 });
             }
         },
-        complete: function (jqXHR, textStatus) {
+        complete: function (_jqXHR, _textStatus) {
             if (listUsers.length > 0) {
                 UsersReadCallback();
             }
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error: function (_jqXHR, _textStatus, _errorThrown) {
             // alert(jqXHR.statusText);
         }
     });
