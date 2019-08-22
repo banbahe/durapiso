@@ -6,6 +6,9 @@ let products = [];
 let clients = [];
 let listClient = [];
 
+let listDownloads = [];
+let downloads = [];
+
 const sessionmaker = "LANDINGPAGE";
 // star LANDING PAGE
 OnStart();
@@ -20,9 +23,36 @@ function ClientsCurrent() {
     }
 
 }
-// start downloads
+// region downloads
+function DownloadReadCallBack(downloads) {
+    let renderDownloads = '';
+    downloads.map(item => {    
+    //     <div class="col-md-4 col-sm-6 col-xxs-12 animate-box fadeInUp animated">
+    //     <a href="${item.imgurl}" class="fh5co-project-item image-popup">
+    //         <img src="${item.imgurl}" alt="${item.description}" class="img-responsive img-responsive-custom">
+    //         <div class="fh5co-text">
+    //             <h2>${item.name}</h2>
+    //             <p>${item.description}</p>
+    //         </div>
+    //     </a>
+    //    </div>   
+
+        renderDownloads += `       
+       <div class="fh5co-feature">
+						<div class="fh5co-icon animate-box"><i class="icon-check2"></i></div>
+						<div class="fh5co-text animate-box">
+							<h3>Manual de instalación de duela</h3>
+							<p>Descripción corta de Manual. </p>
+						</div>
+       </div>
+     `});
+    
+    var myElement = document.getElementById("divDownloads");
+    myElement.innerHTML = renderDownloads;
+}
+
 function DownloadsRead() {
-    // debugger;
+    
     listDownloads = [];
     downloads = [];
 
@@ -51,12 +81,12 @@ function DownloadsRead() {
                         description: datatmp.description,
                         pathurl: datatmp.pathurl,
                     };
-                    products.push(tmpproduct);
+                    downloads.push(tmpproduct);
                 });
             }
         },
         complete: function (jqXHR, textStatus) {
-            ProductsReadCallBack(products);
+            DownloadReadCallBack(downloads);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             alert(jqXHR.statusText);
@@ -116,9 +146,8 @@ function ClientsRead() {
     });
 }
 
-// PRODUCTS
+// region PRODUCTS
 function ProductsReadCallBack(products) {
-    // console.dir(products);
 
     let renderProducts = '';
     products.map(item => {
@@ -192,7 +221,7 @@ function ProductsRead() {
 function OnStart() {
     ProductsRead();
     ClientsRead();
-    DownloadRead();
+    DownloadsRead();
 
 }
 // end LANDING PAGE
