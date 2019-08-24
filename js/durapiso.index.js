@@ -38,13 +38,10 @@ function DownloadReadCallBack(downloads) {
     //    </div>   
 
         renderDownloads += `       
-       <div class="fh5co-feature">
-						<div class="fh5co-icon animate-box"><i class="icon-check2"></i></div>
-						<div class="fh5co-text animate-box">
-							<h3>Manual de instalación de duela</h3>
-							<p>Descripción corta de Manual. </p>
-						</div>
-       </div>
+        <div class="fh5co-text animate-box fadeInUp animated">
+        <h3>Manual de instalación de duela 2</h3>
+        <p>Descripción corta de Manual 2. </p>
+        </div>
      `});
     
     var myElement = document.getElementById("divDownloads");
@@ -97,7 +94,7 @@ function DownloadsRead() {
 // end downloads
 // CLIENTS 
 function ClientsReadCallBack(clients) {
-    console.dir(clients);
+    // console.dir(clients);
 }
 
 function ClientsRead() {
