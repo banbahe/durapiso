@@ -25,6 +25,7 @@ function ClientsCurrent() {
 }
 // region downloads
 function DownloadReadCallBack(downloads) {
+    console.dir(downloads);
     let renderDownloads = '';
     downloads.map(item => {    
     //     <div class="col-md-4 col-sm-6 col-xxs-12 animate-box fadeInUp animated">
@@ -38,9 +39,12 @@ function DownloadReadCallBack(downloads) {
     //    </div>   
 
         renderDownloads += `       
+        <div class="fh5co-feature">
+        <div class="fh5co-icon animate-box fadeInUp animated"><a style="cursor:pointer;" target="_blank" href="${item.pathurl}"><i class="icon-download"></i></a></div>
         <div class="fh5co-text animate-box fadeInUp animated">
-        <h3>Manual de instalación de duela 2</h3>
-        <p>Descripción corta de Manual 2. </p>
+           <h3> ${item.name}</h3>
+           <p> ${item.description}</p>
+        </div>
         </div>
      `});
     
