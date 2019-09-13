@@ -9,10 +9,73 @@ let listClient = [];
 let listDownloads = [];
 let downloads = [];
 
+let listJobs = [];
+let jobs = [];
+
 const sessionmaker = "LANDINGPAGE";
 // star LANDING PAGE
 OnStart();
 
+// region jobs
+function JobsReadCallBack(jobsparams) {
+    console.dir(jobsparams);
+    let renderJobs = '';
+    jobsparams.map(item => {
+        
+        renderJobs += `
+        <div class="fh5co-feature">
+        <div class="fh5co-text">
+			<h3>${item.name}</h3>
+			<p>${item.description}</p>
+        </div>
+        </div>
+     `
+    });
+    // $("#divIndexProducts").html(renderProducts);
+    var myElement = document.getElementById("divJobs");
+    myElement.innerHTML = renderJobs;
+}
+function JobsRead() {
+    listJobs = [];
+    jobs = [];
+
+    // missed create filter in backend
+    let endpoint = uriservice + "api/jobs";
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: endpoint,
+        async: true,
+        beforeSend: function (xhr) { },
+        success: function (data, textStatus, jqXHR) {
+
+            if (typeof data !== "undefined") {
+                let adata = JSON.parse(data.result);
+                //                debugger;
+                adata.map(datatmp => {
+                    let tmpjob = {
+                        id: datatmp._id,
+                        status_item: datatmp.status_item,
+                        create_date: datatmp.create_date,
+                        modification_date: datatmp.modification_date,
+                        maker: datatmp.maker,
+                        name: datatmp.name,
+                        description: datatmp.description,
+                    };
+                    jobs.push(tmpjob);
+                });
+            }
+        },
+        complete: function (jqXHR, textStatus) {
+            JobsReadCallBack(jobs);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert(jqXHR.statusText);
+        }
+    });
+}
+// endregion jobs 
 
 function ClientsCurrent() {
 
@@ -27,16 +90,16 @@ function ClientsCurrent() {
 function DownloadReadCallBack(downloads) {
     console.dir(downloads);
     let renderDownloads = '';
-    downloads.map(item => {    
-    //     <div class="col-md-4 col-sm-6 col-xxs-12 animate-box fadeInUp animated">
-    //     <a href="${item.imgurl}" class="fh5co-project-item image-popup">
-    //         <img src="${item.imgurl}" alt="${item.description}" class="img-responsive img-responsive-custom">
-    //         <div class="fh5co-text">
-    //             <h2>${item.name}</h2>
-    //             <p>${item.description}</p>
-    //         </div>
-    //     </a>
-    //    </div>   
+    downloads.map(item => {
+        //     <div class="col-md-4 col-sm-6 col-xxs-12 animate-box fadeInUp animated">
+        //     <a href="${item.imgurl}" class="fh5co-project-item image-popup">
+        //         <img src="${item.imgurl}" alt="${item.description}" class="img-responsive img-responsive-custom">
+        //         <div class="fh5co-text">
+        //             <h2>${item.name}</h2>
+        //             <p>${item.description}</p>
+        //         </div>
+        //     </a>
+        //    </div>   
 
         renderDownloads += `       
         <div class="fh5co-feature">
@@ -47,13 +110,13 @@ function DownloadReadCallBack(downloads) {
         </div>
         </div>
      `});
-    
+
     var myElement = document.getElementById("divDownloads");
     myElement.innerHTML = renderDownloads;
 }
 
 function DownloadsRead() {
-    
+
     listDownloads = [];
     downloads = [];
 
@@ -65,7 +128,7 @@ function DownloadsRead() {
         dataType: "json",
         url: endpoint,
         async: true,
-        beforeSend: function (xhr) {},
+        beforeSend: function (xhr) { },
         success: function (data, textStatus, jqXHR) {
 
             if (typeof data !== "undefined") {
@@ -102,7 +165,6 @@ function ClientsReadCallBack(clients) {
 }
 
 function ClientsRead() {
-    // debugger;
     listProduct = [];
     products = [];
 
@@ -223,7 +285,7 @@ function OnStart() {
     ProductsRead();
     ClientsRead();
     DownloadsRead();
-
+    JobsRead();
 }
 // end LANDING PAGE
 function ProductUpdate() {

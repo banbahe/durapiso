@@ -212,7 +212,7 @@ function ProductAdd() {
             complete: function (jqXHR, textStatus) {
                 document.getElementById("ProductCreateUpdate").reset();
                 alert("Producto Agregado");
-                location.href = "./productcatalog.html";
+                location.href = "./backofficeproducts.html";
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 alert(jqXHR.statusText);
