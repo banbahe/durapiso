@@ -18,7 +18,7 @@ OnStart();
 
 // region jobs
 function JobsReadCallBack(jobsparams) {
-    console.dir(jobsparams);
+    // console.dir(jobsparams);
     let renderJobs = '';
     jobsparams.map(item => {
         
@@ -88,24 +88,15 @@ function ClientsCurrent() {
 }
 // region downloads
 function DownloadReadCallBack(downloads) {
-    console.dir(downloads);
+    // console.dir(downloads);
     let renderDownloads = '';
     downloads.map(item => {
-        //     <div class="col-md-4 col-sm-6 col-xxs-12 animate-box fadeInUp animated">
-        //     <a href="${item.imgurl}" class="fh5co-project-item image-popup">
-        //         <img src="${item.imgurl}" alt="${item.description}" class="img-responsive img-responsive-custom">
-        //         <div class="fh5co-text">
-        //             <h2>${item.name}</h2>
-        //             <p>${item.description}</p>
-        //         </div>
-        //     </a>
-        //    </div>   
 
         renderDownloads += `       
         <div class="fh5co-feature">
         <div class="fh5co-icon animate-box fadeInUp animated"><a style="cursor:pointer;" target="_blank" href="${item.pathurl}"><i class="icon-download"></i></a></div>
         <div class="fh5co-text animate-box fadeInUp animated">
-           <h3> ${item.name}</h3>
+           <h3> ${item.title}</h3>
            <p> ${item.description}</p>
         </div>
         </div>
@@ -141,7 +132,7 @@ function DownloadsRead() {
                         create_date: datatmp.create_date,
                         modification_date: datatmp.modification_date,
                         maker: datatmp.maker,
-                        name: datatmp.name,
+                        title: datatmp.title,
                         description: datatmp.description,
                         pathurl: datatmp.pathurl,
                     };
@@ -311,7 +302,7 @@ function ProductsDelete() {
             success: function (data, textStatus, jqXHR) {
 
                 if (typeof data !== "undefined") {
-                    console.dir(data);
+                    // console.dir(data);
                     // window.location.href("about.html");
                 }
             },
@@ -511,7 +502,7 @@ function ProductAdd() {
 
 $("#ProductCreateUpdate").on("submit", function (event) {
     event.preventDefault();
-    console.log($(this).serialize());
+    // console.log($(this).serialize());
 });
 
 

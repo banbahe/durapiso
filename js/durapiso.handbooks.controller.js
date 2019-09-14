@@ -1,5 +1,4 @@
 const uriservice = "https://durapisoservice.herokuapp.com/";
-
 // user start
 let listItems = [];
 let listItemsSelected = [];
@@ -155,11 +154,11 @@ function Action(tmpObject) {
     }
     if (listItemsSelected.length > 1) {
         document.getElementById("btnUpdate").style.visibility = "hidden";
-        // document.getElementById("btnDelete").style.display = "block";
     }
 }
 
 function ReadCallback() {
+    console.dir(listItems);
     let tmpRender = '';
     listItems.map(item => {
         tmpRender += `
@@ -168,6 +167,8 @@ function ReadCallback() {
                  src="https://reypila.github.io/durapiso/images/pdf.png" /></label>
      </li>`;
     });
+
+    console.dir(tmpRender);
 
     $("#divResultCatalog").html(tmpRender);
 }
@@ -197,7 +198,7 @@ function Read() {
 
     listItems = [];
     listItemsSelected = [];
-    let endpoint = uriservice + "api/downloads";
+    let endpoint = uriservice + "api/downloads/4/filter";
 
     $.ajax({
         type: "GET",
