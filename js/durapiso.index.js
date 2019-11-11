@@ -16,6 +16,13 @@ const sessionmaker = "LANDINGPAGE";
 // star LANDING PAGE
 OnStart();
 
+// start region menus 
+function clickmenuHome() {
+    // document.getElementById("myDIV").style.display = "none";
+    document.getElementById('divmenuHome').style.display = 'table';   
+}
+// end region menus
+
 // region jobs
 function JobsReadCallBack(jobsparams) {
     // console.dir(jobsparams);

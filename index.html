@@ -1,17 +1,35 @@
 <!DOCTYPE html>
-
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
 <html class="no-js">
+<!--<![endif]-->
 
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Durapiso</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Durapiso Excelencia en pisos" />
-	<meta name="keywords" content="Durapiso, pisos, mosaico, interioires" />
-	<meta name="author" content="github.com/reypila" />
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
 
+	<!-- 
+	//////////////////////////////////////////////////////
 
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FREEHTML5.CO
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
+
+	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content="" />
 	<meta property="og:image" content="" />
 	<meta property="og:url" content="" />
@@ -39,165 +57,41 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 
-
+	<!-- 
+	Default Theme Style 
+	You can change the style.css (default color purple) to one of these styles
+	-->
 	<link rel="stylesheet" href="css/style.css">
 
+	<!-- Styleswitcher ( This style is for demo purposes only, you may delete this anytime. ) -->
 	<link rel="stylesheet" id="theme-switch" href="css/style.css">
+	<!-- End demo purposes only -->
 
 
 	<style>
-		/* start */
-		* common and top level styles */ #nav span {
-			display: none;
-		}
+		/* For demo purpose only */
 
-		#nav,
-		#nav ul {
-			list-style: none outside none;
-			margin: 0;
-			padding: 0;
-		}
+		/*
+	GREEN
+	8dc63f
+	RED
+	FA5555
+	TURQUOISE
+	27E1CE
+	BLUE 
+	2772DB
+	ORANGE
+	FF7844
+	YELLOW
+	FCDA05
+	PINK
+	F64662
+	PURPLE
+	7045FF
 
-		#nav {
-			/* background-color: #F5F5F5; */
-			background-color: transparent;
-			/* border-bottom: 5px solid #333333; */
-			border-bottom: 3px solid gray;
-			float: left;
-			margin-left: 1%;
-			margin-right: 1%;
-			position: relative;
-			width: 98%;
-		}
+	*/
 
-		#nav ul.subs {
-			background-color: #FFFFFF;
-			box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-			/* color: #333333; */
-			color: #ffffff;
-			display: none;
-			left: 0;
-			padding: 2%;
-			position: absolute;
-			top: 54px;
-			width: 96%;
-		}
-
-		#nav>li {
-			border-bottom: 5px solid transparent;
-			float: left;
-			margin-bottom: -5px;
-			text-align: left;
-			-moz-transition: all 300ms ease-in-out 0s;
-			-ms-transition: all 300ms ease-in-out 0s;
-			-o-transition: all 300ms ease-in-out 0s;
-			-webkit-transition: all 300ms ease-in-out 0s;
-			transition: all 300ms ease-in-out 0s;
-		}
-
-		#nav li a {
-			display: block;
-			text-decoration: none;
-			-moz-transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
-			-ms-transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
-			-o-transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
-			-webkit-transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
-			transition: color 450ms ease-in-out 0s, background-color 450ms ease-in-out 0s;
-			white-space: normal;
-		}
-
-		#nav>li>a {
-			color: #ffffff;
-			display: block;
-			font-size: 1.3em;
-			line-height: 49px;
-			padding: 0 15px;
-			text-transform: uppercase;
-		}
-
-		#nav>li:hover>a,
-		#nav>a:hover {
-			/* background-color: #F55856; */
-			background-color: darkgoldenrod;
-			color: #FFFFFF;
-		}
-
-		#nav li.active>a {
-			background-color: #333333;
-			color: #FFFFFF;
-		}
-
-		/* submenu */
-		#nav li:hover ul.subs {
-			display: block;
-		}
-
-		#nav ul.subs>li {
-			display: inline-block;
-			float: none;
-			padding: 10px 1%;
-			vertical-align: top;
-			width: 33%;
-		}
-
-		#nav ul.subs>li a {
-			color: #777777;
-			line-height: 20px;
-		}
-
-		#nav ul li a:hover {
-			color: #F55856;
-		}
-
-		#nav ul.subs>li>a {
-			font-size: 1.3em;
-			margin-bottom: 10px;
-			text-transform: uppercase;
-		}
-
-		#nav ul.subs>li li {
-			float: none;
-			padding-left: 8px;
-			-moz-transition: padding 150ms ease-out 0s;
-			-ms-transition: padding 150ms ease-out 0s;
-			-o-transition: padding 150ms ease-out 0s;
-			-webkit-transition: padding 150ms ease-out 0s;
-			transition: padding 150ms ease-out 0s;
-		}
-
-		#nav ul.subs>li li:hover {
-			padding-left: 15px;
-		}
-
-		/* responsive rules */
-		@media all and (max-width : 980px) {
-			#nav>li {
-				float: none;
-				border-bottom: 0;
-				margin-bottom: 0;
-			}
-
-			#nav ul.subs {
-				position: relative;
-				top: 0;
-			}
-
-			#nav li:hover ul.subs {
-				display: none;
-			}
-
-			#nav li #s1:target+ul.subs,
-			#nav li #s2:target+ul.subs {
-				display: block;
-			}
-
-			#nav ul.subs>li {
-				display: block;
-				width: auto;
-			}
-		}
-
-		/* end */
+		/* For Demo Purposes Only ( You can delete this anytime :-) */
 		#colour-variations {
 			padding: 10px;
 			-webkit-transition: 0.5s;
@@ -353,10 +247,20 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
 
 </head>
 
 
+<!-- 
+		INFO:
+		Add 'boxed' class to body element to make the layout as boxed style.
+		Example: 
+		<body class="boxed">	
+	-->
 
 <body>
 
@@ -366,68 +270,28 @@
 	<div id="fh5co-page">
 		<section id="fh5co-header">
 			<div class="container">
-				<!-- start -->
-				<ul id="nav">
-					<li><a href="#s1">Nosotros</a>
-						<span id="s1"></span>
-						<ul class="subs">
-							<li><a href="#">Acerca de nosotros</a>
-								<ul>
-									<li><a href="#">Mision</a></li>
-									<li><a href="#">Vision</a></li>
-									<li><a href="#">Valores</a></li>
+				<nav role="navigation">
+					<ul class="pull-left left-menu">
+						<li id='menuHome' onclick="clickmenuHome()">
+							<a href="#">Inicio</a>
+							
+						</li>
+						<!-- <div id='divmenuHome' style="position: absolute; background-color: white;display: tab;">
+								<h1>Pure chat</h1>
+					    </div> -->
+						<!-- <li><a href="tour.html">Descargas</a></li> -->
+						<li><a href="#">Empresa</a></li>
+						<li><a href="pricing.html">Productos</a></li>
+						<li><a href="pricing.html">Promociones</a></li>
+						<li><a href="pricing.html">Bolsa de Trabajo</a></li>
 
-
-								</ul>
-							</li>
-							<li><a href="#">Otros</a>
-								<ul>
-									<li><a href="#">Fichas Tecnicas</a></li>
-									<li><a href="#">Clientes</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li class="active"><a href="#s2">Descargas</a>
-						<span id="s2"></span>
-						<ul class="subs">
-							<li><a href="#">PDF</a>
-								<ul>
-									<li><a href="#">Manuales</a></li>
-									<li><a href="#">Fichas Tecnicas</a></li>
-									<li><a href="#">Garantias</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Word</a>
-								<ul>
-									<li><a href="#">Manuales Word</a></li>
-									<li><a href="#">Fichas Tecnicas Word</a></li>
-									<li><a href="#">Garantias Word</a></li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li><a href="#">Productos</a></li>
+					</ul>
 					<h1 id="fh5co-logo"><a href="index.html">Durapiso<span>.</span></a></h1>
 					<ul class="pull-right right-menu">
 						<!-- <li><a href="#">Ingresar</a></li> -->
 						<li class="fh5co-cta-btn"><a href="login.html">Ingresar</a></li>
 					</ul>
-
-				</ul>
-				<!-- end -->
-				<!-- <nav role="navigation">
-					<ul class="pull-left left-menu">
-						<li><a href="#divNosotros">Nosotros</a></li>
-						<li><a href="#divDownloads">Descargas</a></li>
-						<li><a href="#divNuestrosProductos">Productos</a></li>
-						<li><a href="#divJobs">Bolsa de Trabajo</a></li>
-					</ul>
-					<h1 id="fh5co-logo"><a href="index.html">Durapiso<span>.</span></a></h1>
-					<ul class="pull-right right-menu">
-						<li class="fh5co-cta-btn"><a href="login.html">Ingresar</a></li>
-					</ul>
-				</nav> -->
+				</nav>
 			</div>
 		</section>
 		<!-- #fh5co-header -->
