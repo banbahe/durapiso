@@ -17,25 +17,47 @@ const sessionmaker = "LANDINGPAGE";
 OnStart();
 
 // start region menus 
-function showMenuT(object) {
+function MenuHide(object) {
+    // debugger;
+    console.dir(object.id)
+    // let key = object.id;
+    // switch (key) {
+    //     case 'menuHome':
+    document.getElementById("divmenuHome").style.visibility = "hidden";
+    //     break;
+    // case 'menuEmpresa':
+    document.getElementById("divmenuEmpresa").style.visibility = "hidden";
+    // break;
+
+    // case 'menuProducto':
+    document.getElementById("divmenuProducto").style.visibility = "hidden";
+    // break;
+
+    //     default:
+    //         alert('hahahahahaha xD');
+    //         break;
+    // }
+}
+
+function MenuShow(object) {
     // debugger;
     console.dir(object.id)
     let key = object.id;
     switch (key) {
         case 'menuHome':
             document.getElementById("divmenuHome").style.visibility = "visible";
-            document.getElementById("divmenuEmpresa").style.visibility = "hidden";
-            document.getElementById("divmenuProducto").style.visibility = "hidden";
+            // document.getElementById("divmenuEmpresa").style.visibility = "hidden";
+            // document.getElementById("divmenuProducto").style.visibility = "hidden";
             break;
         case 'menuEmpresa':
-            document.getElementById("divmenuHome").style.visibility = "hidden";
+            // document.getElementById("divmenuHome").style.visibility = "hidden";
             document.getElementById("divmenuEmpresa").style.visibility = "visible";
-            document.getElementById("divmenuProducto").style.visibility = "hidden";
+            // document.getElementById("divmenuProducto").style.visibility = "hidden";
             break;
 
         case 'menuProducto':
-            document.getElementById("divmenuHome").style.visibility = "hidden";
-            document.getElementById("divmenuEmpresa").style.visibility = "hidden";
+            // document.getElementById("divmenuHome").style.visibility = "hidden";
+            // document.getElementById("divmenuEmpresa").style.visibility = "hidden";
             document.getElementById("divmenuProducto").style.visibility = "visible";
             break;
 

@@ -70,9 +70,10 @@
 
 	<style>
 		.menu-img {
-            width: 210px;
-            height: 145px;
-        }
+			width: 210px;
+			height: 145px;
+		}
+
 		#colour-variations {
 			padding: 10px;
 			-webkit-transition: 0.5s;
@@ -251,7 +252,7 @@
 			<div class="container">
 				<nav role="navigation">
 					<ul class="pull-left left-menu">
-						<li id='menuHome' onmouseover="showMenuT(this)">
+						<li id='menuHome' onmouseover="MenuShow(this)" onmouseout="MenuHide(this)">
 							<a href="#">Inicio</a>
 						</li>
 						<div id='divmenuHome'
@@ -278,7 +279,7 @@
 							</div>
 						</div>
 						<!-- END INICIO -->
-						<li id='menuEmpresa' onmouseover="showMenuT(this)">
+						<li id='menuEmpresa' onmouseover="MenuShow(this)" onmouseout="MenuHide(this)">
 							<a href="#">Empresa</a>
 						</li>
 						<!-- #region Empresa -->
@@ -314,8 +315,9 @@
 							</div>
 						</div>
 						<!-- #endregion Empresa -->
-
-						<li id='menuProducto' onmouseover="showMenuT(this)"><a href="pricing.html">Productos</a></li>
+						<li id='menuProducto' onmouseover="MenuShow(this)" onmouseout="MenuHide(this)">
+							<a href="pricing.html">Productos</a>
+						</li>
 						<!-- #region Productos -->
 						<div id='divmenuProducto'
 							style='position: absolute;width: 1024px;background-color:#f1f1f1;color:midnightblue; visibility: hidden;'>
