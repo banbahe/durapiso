@@ -69,29 +69,10 @@
 
 
 	<style>
-		/* For demo purpose only */
-
-		/*
-	GREEN
-	8dc63f
-	RED
-	FA5555
-	TURQUOISE
-	27E1CE
-	BLUE 
-	2772DB
-	ORANGE
-	FF7844
-	YELLOW
-	FCDA05
-	PINK
-	F64662
-	PURPLE
-	7045FF
-
-	*/
-
-		/* For Demo Purposes Only ( You can delete this anytime :-) */
+		.menu-img {
+            width: 210px;
+            height: 145px;
+        }
 		#colour-variations {
 			padding: 10px;
 			-webkit-transition: 0.5s;
@@ -270,15 +251,105 @@
 			<div class="container">
 				<nav role="navigation">
 					<ul class="pull-left left-menu">
-						<li id='menuHome' onclick="clickmenuHome()">
+						<li id='menuHome' onmouseover="showMenuT(this)">
 							<a href="#">Inicio</a>
 						</li>
-						<!-- <div id='divmenuHome' style="position: absolute; background-color: white;display: tab;">
-								<h1>Pure chat</h1>
-					    </div> -->
-						<!-- <li><a href="tour.html">Descargas</a></li> -->
-						<li><a href="#">Empresa</a></li>
-						<li><a href="pricing.html">Productos</a></li>
+						<div id='divmenuHome'
+							style='position: absolute;width: 1024px;background-color:#f1f1f1;color:midnightblue; visibility: hidden;'>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-4">
+										<strong>Soporte</strong> <span class="glyphicon glyphicon-chevron-right"
+											aria-hidden="true"></span> </div>
+									<div class="col-sm-8">
+										<div class="row">
+											<div class="col-sm-4" ">
+												<img src=" ./images/menu/03_soporte.png" class="img-thumbnail menu-img" alt="Cinque Terre">
+												<br>
+												<label>Pure Chat</label>
+											</div>
+											<div class="col-sm-4">
+											</div>
+											<div class="col-sm-4">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- END INICIO -->
+						<li id='menuEmpresa' onmouseover="showMenuT(this)">
+							<a href="#">Empresa</a>
+						</li>
+						<!-- #region Empresa -->
+						<div id='divmenuEmpresa'
+							style='position: absolute;width: 1024px;background-color:#f1f1f1;color:midnightblue; visibility: hidden;'>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-4"><strong>¿Quienes Somos ?</strong> <span
+											class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </div>
+									<div class="col-sm-8">
+										<div class="row">
+											<div class="col-sm-4">
+												<img src="./images/menu/00_mision.jpg" class="img-thumbnail menu-img"
+													alt="Durapiso">
+												<br>
+												<label>Misión</label>
+											</div>
+											<div class="col-sm-4">
+												<img src="./images/menu/01_vision.jpg" class="img-thumbnail menu-img"
+													alt="Durapiso">
+												<br>
+												<label>Visión</label>
+											</div>
+											<div class="col-sm-4">
+												<img src="./images/menu/02_valores.jpg" class="img-thumbnail menu-img"
+													alt="Durapiso">
+												<br>
+												<label>Valores</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- #endregion Empresa -->
+
+						<li id='menuProducto' onmouseover="showMenuT(this)"><a href="pricing.html">Productos</a></li>
+						<!-- #region Productos -->
+						<div id='divmenuProducto'
+							style='position: absolute;width: 1024px;background-color:#f1f1f1;color:midnightblue; visibility: hidden;'>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-sm-4"><strong>¿Quienes Somos ?</strong>
+										<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									</div>
+									<div class="col-sm-8">
+										<div class="row">
+											<div class="col-sm-4">
+												<img src="./images/menu/06_accesorios.png"
+													class="img-thumbnail menu-img" alt="Durapiso">
+												<br>
+												<label>Acessorios</label>
+											</div>
+											<div class="col-sm-4">
+												<img src="./images/menu/05_galeria.jpg" class="img-thumbnail menu-img"
+													alt="Durapiso">
+												<br>
+												<label>Galeria</label>
+											</div>
+											<div class="col-sm-4">
+												<img src="./images/menu/04_simulador.jpg" class="img-thumbnail menu-img"
+													alt="Durapiso">
+												<br>
+												<label>Simulador</label>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- #endregion Productos -->
 						<li><a href="pricing.html">Promociones</a></li>
 						<li><a href="pricing.html">Bolsa de Trabajo</a></li>
 
@@ -845,6 +916,12 @@
 			// fadeInUp animated
 
 		});
+
+		function showMenuHiden() {
+			//	debugger;
+			document.getElementById("divmenuHome").style.visibility = "hidden";
+		}
+
 
 	</script>
 

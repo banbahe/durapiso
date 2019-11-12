@@ -17,9 +17,33 @@ const sessionmaker = "LANDINGPAGE";
 OnStart();
 
 // start region menus 
-function clickmenuHome() {
-    // document.getElementById("myDIV").style.display = "none";
-    document.getElementById('divmenuHome').style.display = 'table';   
+function showMenuT(object) {
+    // debugger;
+    console.dir(object.id)
+    let key = object.id;
+    switch (key) {
+        case 'menuHome':
+            document.getElementById("divmenuHome").style.visibility = "visible";
+            document.getElementById("divmenuEmpresa").style.visibility = "hidden";
+            document.getElementById("divmenuProducto").style.visibility = "hidden";
+            break;
+        case 'menuEmpresa':
+            document.getElementById("divmenuHome").style.visibility = "hidden";
+            document.getElementById("divmenuEmpresa").style.visibility = "visible";
+            document.getElementById("divmenuProducto").style.visibility = "hidden";
+            break;
+
+        case 'menuProducto':
+            document.getElementById("divmenuHome").style.visibility = "hidden";
+            document.getElementById("divmenuEmpresa").style.visibility = "hidden";
+            document.getElementById("divmenuProducto").style.visibility = "visible";
+            break;
+
+        default:
+            alert('hahahahahaha xD');
+            break;
+    }
+
 }
 // end region menus
 
@@ -28,7 +52,7 @@ function JobsReadCallBack(jobsparams) {
     // console.dir(jobsparams);
     let renderJobs = '';
     jobsparams.map(item => {
-        
+
         renderJobs += `
         <div class="fh5co-feature">
         <div class="fh5co-text">
