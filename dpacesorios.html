@@ -11,9 +11,23 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Durapiso</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FREEHTML5.CO" />
+	<meta name="description" content="Durapiso" />
+	<meta name="keywords" content="Durapiso" />
+	<meta name="author" content="github.com/stbndev" />
+
+	<!-- 
+	//////////////////////////////////////////////////////
+
+	FREE HTML5 TEMPLATE 
+	DESIGNED & DEVELOPED by FREEHTML5.CO
+		
+	Website: 		http://freehtml5.co/
+	Email: 			info@freehtml5.co
+	Twitter: 		http://twitter.com/fh5co
+	Facebook: 		https://www.facebook.com/fh5co
+
+	//////////////////////////////////////////////////////
+	 -->
 
 	<!-- Facebook and Twitter integration -->
 	<meta property="og:title" content="" />
@@ -55,11 +69,29 @@
 
 
 	<style>
-		.menu-img {
-			width: 215px;
-			height: 150px;
-		}
+		/* For demo purpose only */
 
+		/*
+	GREEN
+	8dc63f
+	RED
+	FA5555
+	TURQUOISE
+	27E1CE
+	BLUE 
+	2772DB
+	ORANGE
+	FF7844
+	YELLOW
+	FCDA05
+	PINK
+	F64662
+	PURPLE
+	7045FF
+
+	*/
+
+		/* For Demo Purposes Only ( You can delete this anytime :-) */
 		#colour-variations {
 			padding: 10px;
 			-webkit-transition: 0.5s;
@@ -210,16 +242,33 @@
 			outline: none;
 		}
 	</style>
-	
+	<!-- End demo purposes only -->
+
+
+	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
 
 </head>
+
+
+<!-- 
+		INFO:
+		Add 'boxed' class to body element to make the layout as boxed style.
+		Example: 
+		<body class="boxed">	
+	-->
+
 <body>
 
 	<!-- Loader -->
 	<div class="fh5co-loader"></div>
 
 	<div id="fh5co-page">
+		<!-- #region menu -->
 		<section id="fh5co-header">
 			<div class="container">
 				<nav role="navigation">
@@ -236,10 +285,12 @@
 											class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> </div>
 									<div class="col-sm-9">
 										<div class="row">
-											<div class="col-sm-4" ">
-												<img src=" ./images/menu/03_soporte.png" class="img-thumbnail menu-img" alt="Durapiso">
-												<br>
-												<label style="color:#003a48;">Pure Chat</label>
+											<div class="col-sm-4">
+												<a href="./dppurechat.html">
+													<img src=" ./images/menu/03_soporte.png"
+														class="img-thumbnail menu-img" alt="Durapiso">
+													<label style="color:#003a48;">Pure Chat</label>
+												</a>
 											</div>
 											<div class="col-sm-4">
 											</div>
@@ -255,7 +306,8 @@
 							<a href="#">Empresa</a>
 						</li>
 						<!-- #region Empresa -->
-						<div id='divmenuEmpresa' style='position: absolute;min-width: 1024px; width: 1100px;background-color:#f2f0f0; visibility: hidden;'>
+						<div id='divmenuEmpresa'
+							style='position: absolute;min-width: 1024px; width: 1100px;background-color:#f2f0f0; visibility: hidden;'>
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col-sm-3"><strong style="color:#01151a;">¿Quienes Somos ?</strong> <span
@@ -263,22 +315,25 @@
 									<div class="col-sm-9">
 										<div class="row">
 											<div class="col-sm-4">
-												<img src="./images/menu/00_mision.jpg" class="img-thumbnail menu-img"
-													alt="Durapiso">
-												<br>
-												<label style="color:#003a48;">Misión</label>
+												<a href="./dpmision.html">
+													<img src="./images/menu/00_mision.jpg"
+														class="img-thumbnail menu-img" alt="Durapiso">
+													<label style="color:#003a48;">Misión</label>
+												</a>
 											</div>
 											<div class="col-sm-4">
-												<img src="./images/menu/01_vision.jpg" class="img-thumbnail menu-img"
-													alt="Durapiso">
-												<br>
-												<label style="color:#003a48;">Visión</label>
+												<a href="./dpvision.html">
+													<img src="./images/menu/01_vision.jpg"
+														class="img-thumbnail menu-img" alt="Durapiso">
+													<label style="color:#003a48;">Visión</label>
+												</a>
 											</div>
 											<div class="col-sm-4">
-												<img src="./images/menu/02_valores.jpg" class="img-thumbnail menu-img"
-													alt="Durapiso">
-												<br>
-												<label style="color:#003a48;">Valores</label>
+												<a href="./dpvalores.html">
+													<img src="./images/menu/02_valores.jpg"
+														class="img-thumbnail menu-img" alt="Durapiso">
+													<label style="color:#003a48;">Valores</label>
+												</a>
 											</div>
 										</div>
 									</div>
@@ -290,7 +345,8 @@
 							<a href="#">Productos</a>
 						</li>
 						<!-- #region Productos -->
-						<div id='divmenuProducto' style='position: absolute;min-width: 1024px; width: 1100px;background-color:#f2f0f0; visibility: hidden;'>
+						<div id='divmenuProducto'
+							style='position: absolute;min-width: 1024px; width: 1100px;background-color:#f2f0f0; visibility: hidden;'>
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col-sm-3"><strong style="color:#01151a;">¿ Quienes Somos ?</strong>
@@ -299,28 +355,35 @@
 									<div class="col-sm-9">
 										<div class="row">
 											<div class="col-sm-4">
-												<img src="./images/menu/06_accesorios.png" class="img-thumbnail menu-img" alt="Durapiso">
-												<br>
-												<label style="color:#003a48;">Acessorios</label>
+												<a href="./dpacesorios.html">
+													<img src="./images/menu/06_accesorios.png"
+														class="img-thumbnail menu-img" alt="Durapiso">
+													<label style="color:#003a48;">Acessorios</label>
+												</a>
 											</div>
 											<div class="col-sm-4">
-												<img src="./images/menu/05_galeria.jpg" class="img-thumbnail menu-img" alt="Durapiso">
-												<br>
-												<label style="color:#003a48;">Galeria</label>
+												<a href="./dpgaleria.html">
+													<img src="./images/menu/05_galeria.jpg"
+														class="img-thumbnail menu-img" alt="Durapiso">
+													<label style="color:#003a48;">Galeria</label>
+												</a>
 											</div>
 											<div class="col-sm-4">
-												<img src="./images/menu/04_simulador.jpg" class="img-thumbnail menu-img" alt="Durapiso">
-												<br>
-												<label style="color:#003a48;">Simulador</label>
+												<a href="./dpsimulador.html">
+													<img src="./images/menu/04_simulador.jpg"
+														class="img-thumbnail menu-img" alt="Durapiso">
+													<label style="color:#003a48;">Simulador</label>
+												</a>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						
 						<!-- #endregion Productos -->
-						<li><a href="pricing.html">Promociones</a></li>
-						<li><a href="pricing.html">Bolsa de Trabajo</a></li>
+						<li><a href="dppromociones.html">Promociones</a></li>
+						<li><a href="dpbolsadetrabajo.html">Bolsa de Trabajo</a></li>
 
 					</ul>
 					<h1 id="fh5co-logo"><a href="index.html">Durapiso<span>.</span></a></h1>
@@ -331,35 +394,30 @@
 				</nav>
 			</div>
 		</section>
-		<!-- #fh5co-header -->
-
-		<section id="fh5co-hero" class="js-fullheight" style="background-image: url(images/bgHome.jpg);"
+		<!-- #endregion menu -->
+		<section id="fh5co-hero" class="no-js-fullheight" style="background-image: url(images/full_image_1.jpg);"
 			data-next="yes">
 			<div class="fh5co-overlay"></div>
 			<div class="container">
-				<div class="fh5co-intro js-fullheight">
+				<div class="fh5co-intro no-js-fullheight">
 					<div class="fh5co-intro-text">
+						<!-- 
+							INFO:
+							Change the class to 'fh5co-right-position' or 'fh5co-center-position' to change the layout position
+							Example:
+							<div class="fh5co-right-position">
+						-->
+						<div class="fh5co-center-position">
+							<h2 class="animate-box">Accesorios</h2>
+							<!-- <h3 class="animate-box">Mision</h3> -->
 
-						<div class="fh5co-left-position">
-							<h3 class="animate-box" style="color:#fff;">
-								Nuestros productos están elaborados bajo estrictos estándares de calidad y supervisados
-								con el personal adecuado.
-							</h3>
-							<!-- <p class="animate-box"><a href="https://youtu.be/PkzTjIjGW_c" -->
-							<p class="animate-box"><a href="https://youtu.be/PkzTjIjGW_c" class="btn btn-outline"
-									target="_blank"><i class="icon-play2"></i> Visita
-									Nuestro Canal Youtube</a>
-								<a href="#" class="btn btn-primary">
-									Catálogo</a>
-								<a href="simulator.html" class="btn btn-primary"> Simulador</a>
-							</p>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="fh5co-learn-more animate-box">
 				<a href="#" class="scroll-btn">
-					<span class="text">Descubra más sobre nosotros</span>
+					<span class="text">Descubra mas</span>
 					<span class="arrow"><i class="icon-chevron-down"></i></span>
 				</a>
 			</div>
@@ -367,361 +425,265 @@
 		<!-- END #fh5co-hero -->
 
 
-		<section id="fh5co-projects">
+		<div id="fh5co-about">
 			<div class="container">
-				<div class="row row-bottom-padded-md">
-					<div class="col-md-6 col-md-offset-3 text-center">
-						<!-- <h2 class="fh5co-lead animate-box">Nuestros Productos</h2> -->
-						<div id="divNosotros"></div>
-						<h4>MISIÓN</h4>
+				<div class="row row-bottom-padded-lg">
+					<div class="col-md-6">
+						<figure class="animate-box">
+							<img src="images/menu/06_accesorios.png" width="555px" height="365px" alt="Durapiso"
+								class="img-responsive">
+						</figure>
+					</div>
+					<div class="col-md-6">
+						<div class="fh5co-label animate-box">Durapiso</div>
+						<h2 class="fh5co-lead animate-box">Accesorios</h2>
 						<p class="fh5co-sub-lead animate-box">
-							Ofrecer productos de alta calidad a un precio accesible con diseños vanguardistas y
-							exclusivos, así como dar un buen servicio y atención personalizada a nuestros clientes para
-							satisfacer sus necesidades específicas.
-						</p>
-
-						<h4>VISIÓN</h4>
-						<p class="fh5co-sub-lead animate-box">
-							Ser una empresa líder en nuestro país así como competitivos a nivel mundial en el mercado de
-							pisos vinílicos. Nuestros productos destacan gracias al servicio que brindamos a
-							distribuidores y clientes directos.
-						</p>
-						<h4>VALORES</h4>
-						<p class="fh5co-sub-lead animate-box">
-							Responsabilidad
-							Compromiso
-							Respeto
-							Honestidad
-							Calidad
-							Innovación
+							Building
 						</p>
 					</div>
 				</div>
+
 				<div class="row">
-					<div id="divIndexProducts">
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="fh5co-person">
+							<figure class="animate-box">
+								<img src="images/person5.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
+									class="img-responsive">
+							</figure>
+							<h3 class="fh5co-name animate-box">stbndev</h3>
+							<h4 class="fh5co-designation animate-box">Developer</h4>
+							<p class="fh5co-bio animate-box">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua. Sem et tortor consequat id porta. Augue
+								lacus viverra vitae congue eu consequat ac felis. Imperdiet sed euismod nisi porta lorem
+								mollis aliquam. Tristique risus nec feugiat in fermentum posuere urna nec tincidunt. A
+								cras semper auctor neque vitae. Faucibus scelerisque eleifend donec pretium vulputate
+								sapien nec sagittis aliquam. Vitae semper quis lectus nulla at volutpat diam. Varius sit
+								amet mattis vulputate enim nulla aliquet porttitor. Sit amet nisl suscipit adipiscing
+								bibendum est. Eget nunc lobortis mattis aliquam. Ipsum suspendisse ultrices gravida
+								dictum. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Facilisi morbi
+								tempus iaculis urna id volutpat. Tincidunt ornare massa eget egestas purus viverra
+								accumsan in. Non pulvinar neque laoreet suspendisse interdum. Tortor vitae purus
+								faucibus ornare suspendisse sed. Turpis massa tincidunt dui ut ornare lectus. Ac turpis
+								egestas sed tempus urna et pharetra pharetra massa.
+							</p>
+							<ul class="fh5co-social">
+								<li class="animate-box"><a href="#"><i class="icon-twitter"></i></a></li>
+								<li class="animate-box"><a href="#"><i class="icon-dribbble"></i></a></li>
+								<li class="animate-box"><a href="#"><i class="icon-globe"></i></a></li>
+							</ul>
+						</div>
 					</div>
-					<div id="divNuestrosProductos"></div>
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="fh5co-person">
+							<figure class="animate-box">
+								<img src="images/person6.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
+									class="img-responsive">
+							</figure>
+							<h3 class="fh5co-name animate-box">stbndev</h3>
+							<h4 class="fh5co-designation animate-box">Developer</h4>
+							<p class="fh5co-bio animate-box">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua. Sem et tortor consequat id porta. Augue
+								lacus viverra vitae congue eu consequat ac felis. Imperdiet sed euismod nisi porta lorem
+								mollis aliquam. Tristique risus nec feugiat in fermentum posuere urna nec tincidunt. A
+								cras semper auctor neque vitae. Faucibus scelerisque eleifend donec pretium vulputate
+								sapien nec sagittis aliquam. Vitae semper quis lectus nulla at volutpat diam. Varius sit
+								amet mattis vulputate enim nulla aliquet porttitor. Sit amet nisl suscipit adipiscing
+								bibendum est. Eget nunc lobortis mattis aliquam. Ipsum suspendisse ultrices gravida
+								dictum. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Facilisi morbi
+								tempus iaculis urna id volutpat. Tincidunt ornare massa eget egestas purus viverra
+								accumsan in. Non pulvinar neque laoreet suspendisse interdum. Tortor vitae purus
+								faucibus ornare suspendisse sed. Turpis massa tincidunt dui ut ornare lectus. Ac turpis
+								egestas sed tempus urna et pharetra pharetra massa.
+							</p>
+							<ul class="fh5co-social">
+								<li class="animate-box"><a href="#"><i class="icon-twitter"></i></a></li>
+								<li class="animate-box"><a href="#"><i class="icon-github"></i></a></li>
+								<li class="animate-box"><a href="#"><i class="icon-globe"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="fh5co-person">
+							<figure class="animate-box">
+								<img src="images/person7.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
+									class="img-responsive">
+							</figure>
+							<h3 class="fh5co-name animate-box">stbndev</h3>
+							<h4 class="fh5co-designation animate-box">Developer</h4>
+							<p class="fh5co-bio animate-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+								sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem et tortor
+								consequat id porta. Augue lacus viverra vitae congue eu consequat ac felis. Imperdiet
+								sed euismod nisi porta lorem mollis aliquam. Tristique risus nec feugiat in fermentum
+								posuere urna nec tincidunt. A cras semper auctor neque vitae. Faucibus scelerisque
+								eleifend donec pretium vulputate sapien nec sagittis aliquam. Vitae semper quis lectus
+								nulla at volutpat diam. Varius sit amet mattis vulputate enim nulla aliquet porttitor.
+								Sit amet nisl suscipit adipiscing bibendum est. Eget nunc lobortis mattis aliquam. Ipsum
+								suspendisse ultrices gravida dictum. Cras fermentum odio eu feugiat pretium nibh ipsum
+								consequat. Facilisi morbi tempus iaculis urna id volutpat. Tincidunt ornare massa eget
+								egestas purus viverra accumsan in. Non pulvinar neque laoreet suspendisse interdum.
+								Tortor vitae purus faucibus ornare suspendisse sed. Turpis massa tincidunt dui ut ornare
+								lectus. Ac turpis egestas sed tempus urna et pharetra pharetra massa.
+							</p>
+							<ul class="fh5co-social">
+								<li class="animate-box"><a href="#"><i class="icon-twitter"></i></a></li>
+								<li class="animate-box"><a href="#"><i class="icon-dribbble"></i></a></li>
+								<li class="animate-box"><a href="#"><i class="icon-globe"></i></a></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
-		</section>
-		<!-- END #fh5co-projects -->
+		</div>
 
-		<section id="fh5co-features">
+		<!-- END #fh5co-about -->
+
+
+		<div id="fh5co-info">
 			<div class="container">
-				<div class="row text-center row-bottom-padded-md">
-					<div class="col-md-8 col-md-offset-2">
-						<figure class="fh5co-devices animate-box"><img src="images/img_devices.png" alt="Durapiso"
-								class="img-responsive"></figure>
-						<h2 class="fh5co-lead animate-box">Decorando tu departamento</h2>
-						<p class="fh5co-sub-lead animate-box">La decoración moderna, como la moda, se rige por las
-							tendencias. Una de ellas, la más actual, opta por silenciar las paredes en áreas sociales
-							con colores neutros para crear un bonito contraste con muebles y objetos decorativos. </p>
-					</div>
-				</div>
 				<div class="row">
-					<!-- <div class="col-md-4 col-sm-6 col-xs-12 animate-box">
-						<div class="fh5co-feature">
-							<div class="fh5co-icon">
-								<i class="icon-power"></i>
-							</div>
-							<h3>Durapiso</h3>
-							<p>Diseñando tu hogar – ideas e inspiración . Es importante visualizar cada uno de sus
-								ambientes y para ello no hay nada mejor que guiarnos por nuestros sentimientos,
-								sensaciones, recuerdos de viajes o de nuestra infancia. Cada detalle, por más pequeño
-								que sea, puede convertirse en una fuente de inspiración y traernos un baúl lleno de
-								ideas fabulosas.
-							</p>
-						</div>
-					</div> -->
-					<div class="col-md-4 col-sm-6 col-xs-12 animate-box">
-						<div class="fh5co-feature">
-							<div class="fh5co-icon">
-								<i class="icon-flag2"></i>
-							</div>
-							<h3> </h3>
-							<p>En Durapiso contamos con opciones para todo tipo de proyecto. Conoce los pisos vinílicos
-								especialmente diseñados para escuelas, hospitales, restaurantes y más.
-							</p>
-						</div>
+					<div class="col-md-6">
+						<figure class="animate-box">
+							<img src="images/img_4.jpg" alt="Free HTML5 Bootstrap Template by FREEHTML5.co"
+								class="img-responsive">
+						</figure>
 					</div>
-					<div class="clearfix visible-sm-block"></div>
-					<div class="col-md-4 col-sm-6 col-xs-12 animate-box">
-						<div class="fh5co-feature">
-							<div class="fh5co-icon">
-								<i class="icon-anchor"></i>
-							</div>
-							<h3> </h3>
-							<p>Crea el espacio que siempre has soñado con nuestros pisos. Contamos con una gran variedad
-								de colores, diseño y materiales. Empieza con Durapiso.
-							</p>
-						</div>
+					<div class="col-md-6">
+						<div class="fh5co-label animate-box">stbndev</div>
+						<h2 class="fh5co-lead animate-box">Developer</h2>
+						<p class="fh5co-sub-lead animate-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Sem et tortor consequat
+							id porta. Augue lacus viverra vitae congue eu consequat ac felis. Imperdiet sed euismod nisi
+							porta lorem mollis aliquam. Tristique risus nec feugiat in fermentum posuere urna nec
+							tincidunt. A cras semper auctor neque vitae. Faucibus scelerisque eleifend donec pretium
+							vulputate sapien nec sagittis aliquam. Vitae semper quis lectus nulla at volutpat diam.
+							Varius sit amet mattis vulputate enim nulla aliquet porttitor. Sit amet nisl suscipit
+							adipiscing bibendum est. Eget nunc lobortis mattis aliquam. Ipsum suspendisse ultrices
+							gravida dictum. Cras fermentum odio eu feugiat pretium nibh ipsum consequat. Facilisi morbi
+							tempus iaculis urna id volutpat. Tincidunt ornare massa eget egestas purus viverra accumsan
+							in. Non pulvinar neque laoreet suspendisse interdum. Tortor vitae purus faucibus ornare
+							suspendisse sed. Turpis massa tincidunt dui ut ornare lectus. Ac turpis egestas sed tempus
+							urna et pharetra pharetra massa.
+						</p>
 					</div>
-
-					<div class="col-md-4 col-sm-6 col-xs-12 animate-box">
-						<div class="fh5co-feature">
-							<div class="fh5co-icon">
-								<i class="icon-paragraph"></i>
-							</div>
-							<h3> </h3>
-							<p>Resistente, antiderrapante, de fácil instalación, lisos y de color uniforme, así son
-								nuestros pisos vinílicos.
-							</p>
-						</div>
-					</div>
-					<div class="clearfix visible-sm-block"></div>
 				</div>
 			</div>
-		</section>
-
-		<!-- END #fh5co-features -->
+		</div>
 
 
-		<section id="fh5co-features-2">
-			<div class="container">
-				<div class="col-md-6 col-md-push-6">
-					<figure class="fh5co-feature-image animate-box">
-						<img src="images/macbook.png" alt="Durapiso">
-					</figure>
-				</div>
-				<div class="col-md-6 col-md-pull-6">
-					<span class="fh5co-label animate-box">Descargas</span>
-
-					<h2 class="fh5co-lead animate-box">Fichas Tecnicas</h2>
-
-					<div id="divDownloads"></div>
-
-
-					<!-- <div class="fh5co-feature">
-						<div class="fh5co-icon animate-box"><i class="icon-check2"></i></div>
-						<div class="fh5co-text animate-box">
-							<h3>Manual de instalación de duela</h3>
-							<p>Descripción corta de Manual. </p>
-						</div>
-					</div>
-					
-					<div class="fh5co-feature">
-						<div class="fh5co-icon animate-box"><i class="icon-check2"></i></div>
-						<div class="fh5co-text animate-box">
-							<h3>Manual de instalación de loseta</h3>
-							<p>Descripción corta de Manual. </p>
-						</div>
-					</div>
-					<div class="fh5co-feature">
-						<div class="fh5co-icon animate-box"><i class="icon-check2"></i></div>
-						<div class="fh5co-text animate-box">
-							<h3>Manual de instalación de Zoclo Vinilico</h3>
-							<p>Descripción corta de Manual. </p>
-						</div>
-					</div> -->
-
-					<div class="fh5co-btn-action animate-box">
-						<a href="#" class="btn btn-primary btn-cta">Mas Manuales</a>
-					</div>
-
-				</div>
-			</div>
-		</section>
-		<!-- END #fh5co-features-2 -->
 
 		<section id="fh5co-testimonials">
-			<div class="container" onmouseover="ClientsCurrent();">
+			<div class="container">
 				<div class="row row-bottom-padded-sm">
 					<div class="col-md-6 col-md-offset-3 text-center">
-						<div class="fh5co-label animate-box">Casos de exito</div>
-						<h2 class="fh5co-lead animate-box" style="cursor: pointer;">Nuestros Clientes
-						</h2>
+						<div class="fh5co-label animate-box">stbndev</div>
+						<h2 class="fh5co-lead animate-box">Developer</h2>
 					</div>
 				</div>
-
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 text-center animate-box">
 						<div class="flexslider">
 							<ul class="slides">
 								<li>
 									<blockquote>
-										<p id='client_description_0'></p>
-										<p><cite id='client_name_0'></cite></p>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Sem et tortor consequat
+											id porta. Augue lacus viverra vitae congue eu consequat ac felis. Imperdiet
+											sed euismod nisi porta lorem mollis aliquam. Tristique risus nec feugiat in
+											fermentum posuere urna nec tincidunt. A cras semper auctor neque vitae.
+											Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis
+											aliquam. Vitae semper quis lectus nulla at volutpat diam. Varius sit amet
+											mattis vulputate enim nulla aliquet porttitor. Sit amet nisl suscipit
+											adipiscing bibendum est. Eget nunc lobortis mattis aliquam. Ipsum
+											suspendisse ultrices gravida dictum. Cras fermentum odio eu feugiat pretium
+											nibh ipsum consequat. Facilisi morbi tempus iaculis urna id volutpat.
+											Tincidunt ornare massa eget egestas purus viverra accumsan in. Non pulvinar
+											neque laoreet suspendisse interdum. Tortor vitae purus faucibus ornare
+											suspendisse sed. Turpis massa tincidunt dui ut ornare lectus. Ac turpis
+											egestas sed tempus urna et pharetra pharetra massa.
+										</p>
+										<p><cite>&mdash; Lorem ipsum</cite></p>
 									</blockquote>
 								</li>
 								<li>
 									<blockquote>
-										<p id='client_description_1'></p>
-										<p><cite id='client_name_1'></cite></p>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Sem et tortor consequat
+											id porta. Augue lacus viverra vitae congue eu consequat ac felis. Imperdiet
+											sed euismod nisi porta lorem mollis aliquam. Tristique risus nec feugiat in
+											fermentum posuere urna nec tincidunt. A cras semper auctor neque vitae.
+											Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis
+											aliquam. Vitae semper quis lectus nulla at volutpat diam. Varius sit amet
+											mattis vulputate enim nulla aliquet porttitor. Sit amet nisl suscipit
+											adipiscing bibendum est. Eget nunc lobortis mattis aliquam. Ipsum
+											suspendisse ultrices gravida dictum. Cras fermentum odio eu feugiat pretium
+											nibh ipsum consequat. Facilisi morbi tempus iaculis urna id volutpat.
+											Tincidunt ornare massa eget egestas purus viverra accumsan in. Non pulvinar
+											neque laoreet suspendisse interdum. Tortor vitae purus faucibus ornare
+											suspendisse sed. Turpis massa tincidunt dui ut ornare lectus. Ac turpis
+											egestas sed tempus urna et pharetra pharetra massa.
+										</p>
+										<p><cite>&mdash; Lorem ipsum</cite></p>
 									</blockquote>
 								</li>
 								<li>
 									<blockquote>
-										<p id='client_description_2'></p>
-										<p><cite id='client_name_2'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_3'></p>
-										<p><cite id='client_name_3'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_4'></p>
-										<p><cite id='client_name_4'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_5'></p>
-										<p><cite id='client_name_5'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_6'></p>
-										<p><cite id='client_name_6'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_7'></p>
-										<p><cite id='client_name_7'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_8'></p>
-										<p><cite id='client_name_8'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_9'></p>
-										<p><cite id='client_name_9'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_10'></p>
-										<p><cite id='client_name_10'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_11'></p>
-										<p><cite id='client_name_11'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_12'></p>
-										<p><cite id='client_name_12'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_13'></p>
-										<p><cite id='client_name_13'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_14'></p>
-										<p><cite id='client_name_14'></cite></p>
-									</blockquote>
-								</li>
-
-								<li>
-									<blockquote>
-										<p id='client_description_15'></p>
-										<p><cite id='client_name_15'></cite></p>
+										<p>
+											Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+											tempor incididunt ut labore et dolore magna aliqua. Sem et tortor consequat
+											id porta. Augue lacus viverra vitae congue eu consequat ac felis. Imperdiet
+											sed euismod nisi porta lorem mollis aliquam. Tristique risus nec feugiat in
+											fermentum posuere urna nec tincidunt. A cras semper auctor neque vitae.
+											Faucibus scelerisque eleifend donec pretium vulputate sapien nec sagittis
+											aliquam. Vitae semper quis lectus nulla at volutpat diam. Varius sit amet
+											mattis vulputate enim nulla aliquet porttitor. Sit amet nisl suscipit
+											adipiscing bibendum est. Eget nunc lobortis mattis aliquam. Ipsum
+											suspendisse ultrices gravida dictum. Cras fermentum odio eu feugiat pretium
+											nibh ipsum consequat. Facilisi morbi tempus iaculis urna id volutpat.
+											Tincidunt ornare massa eget egestas purus viverra accumsan in. Non pulvinar
+											neque laoreet suspendisse interdum. Tortor vitae purus faucibus ornare
+											suspendisse sed. Turpis massa tincidunt dui ut ornare lectus. Ac turpis
+											egestas sed tempus urna et pharetra pharetra massa.
+										</p>
+										<p><cite>&mdash; Lorem ipsum</cite></p>
 									</blockquote>
 								</li>
 							</ul>
 						</div>
 						<div class="flexslider-controls">
-							<ol class="flex-control-nav animate-box">
-
-								<li class="animate-box"><img id='client_imgurl_0' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_1' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_2' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_3' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_4' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_5' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_6' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_7' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_8' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_9' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_10' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_11' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_12' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_13' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_14' src="images/person_transparent.png"
-										alt="Durapiso"></li>
-								<li class="animate-box"><img id='client_imgurl_15' src="images/person_transparent.png"
-										alt="Durapiso"></li>
+							<ol class="flex-control-nav">
+								<li class="animate-box"><img src="images/person4.jpg"
+										alt="Free HTML5 Bootstrap Template by FREEHTML5.co"></li>
+								<li class="animate-box"><img src="images/person2.jpg"
+										alt="Free HTML5 Bootstrap Template by FREEHTML5.co"></li>
+								<li class="animate-box"><img src="images/person3.jpg"
+										alt="Free HTML5 Bootstrap Template by FREEHTML5.co"></li>
 							</ol>
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</section>
 		<!-- END #fh5co-testimonials -->
 
-		<!-- START Bolsa de Trabajo -->
-		<section id="fh5co-testimonials">
+		<!-- <section id="fh5co-subscribe">
 			<div class="container">
-				<div class="row row-bottom-padded-sm">
-					<div class="col-md-6 col-md-offset-3 text-center">
-						<div class="fh5co-label animate-box">Bolsa de Trabajo</div>
-						<h2 class="fh5co-lead animate-box" style="cursor: pointer;">Trabajos
-						</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center">
-						<!-- <div class="fh5co-feature">
-							<div class="fh5co-text">
-								<h3>Seguridad Condesa</h3>
-								<p>personal de suguridad sucursal condesa</p>
-							</div>
-						</div> -->
-						<div id="divJobs"></div>
-					</div>
 
-				</div>
+				<h3 class="animate-box"><label for="email">Subscribe to our newsletter</label></h3>
+				<form action="#" method="post" class="animate-box">
+					<i class="fh5co-icon icon-paper-plane"></i>
+					<input type="email" class="form-control" placeholder="Enter your email" id="email" name="email">
+					<input type="submit" value="Send" class="btn btn-primary">
+				</form>
 
 			</div>
-		</section>
-		<!-- END Bolsa de Trabajo -->
-
+		</section> -->
+		<!-- #region Suscriptores -->
 		<section id="fh5co-subscribe">
 			<div class="container">
-
 				<h3 class="animate-box"><label for="email">Suscríbete a nuestro boletín</label></h3>
 				<form action="#" method="post" class="animate-box">
 					<i class="fh5co-icon icon-paper-plane"></i>
@@ -730,8 +692,10 @@
 				</form>
 			</div>
 		</section>
-		<!-- END #fh5co-subscribe -->
+		<!-- #endregion Suscriptores -->
 
+
+		<!-- #region footer -->
 		<footer id="fh5co-footer">
 			<div class="container">
 				<div class="row row-bottom-padded-md">
@@ -794,14 +758,15 @@
 							<p class="fh5co-left"><small>&copy; 2019 All
 									Rights Reserved.</small></p>
 							<p class="fh5co-right"><small class="fh5co-right">Designed by <a
-										href="http://github.com/reypila" target="_blank"> E. </a> </small></p>
+										href="http://github.com/stbndev" target="_blank"> DEV </a> </small></p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</footer>
-		<!-- END #fh5co-footer -->
+		<!-- #endregion footer -->
 	</div>
+
 	<!-- END #fh5co-page -->
 
 	<!-- For demo purposes Only ( You may delete this anytime :-) -->
@@ -826,8 +791,6 @@
 
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
-
-
 	<!-- jQuery Easing -->
 	<script src="js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
@@ -857,13 +820,17 @@
 			});
 		});
 	</script>
-
+	<!-- End demo purposes only -->
 
 	<!-- Main JS (Do not remove) -->
 	<script src="js/main.js"></script>
-	<!-- durapiso.index.html -->
-	<script src="js/jquery.cookie.js"></script>
 
+	<!-- 
+	INFO:
+	jQuery Cookie for Demo Purposes Only. 
+	The code below is to toggle the layout to boxed or wide 
+	-->
+	<script src="js/jquery.cookie.js"></script>
 	<script>
 		$(function () {
 
@@ -882,22 +849,10 @@
 				$('body').removeClass($.cookie('layoutCookie')); // the value is boxed.
 				$.removeCookie('layoutCookie', { path: '/' }); // remove the value of our cookie 'layoutCookie'
 			});
-			// fadeInUp animated
-
 		});
-
-		function showMenuHiden() {
-			//	debugger;
-			document.getElementById("divmenuHome").style.visibility = "hidden";
-		}
-
-
 	</script>
-
-	<script src="js/durapiso.index.js"></script>
-
+	<link rel="stylesheet" href="css/durapiso.css">
+	<script src="js/durapiso.util.js"></script>
 </body>
-
-</html>
 
 </html>
