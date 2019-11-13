@@ -18,46 +18,35 @@ OnStart();
 
 // start region menus 
 function MenuHide(object) {
-    // debugger;
-    console.dir(object.id)
-    // let key = object.id;
-    // switch (key) {
-    //     case 'menuHome':
-    document.getElementById("divmenuHome").style.visibility = "hidden";
-    //     break;
-    // case 'menuEmpresa':
-    document.getElementById("divmenuEmpresa").style.visibility = "hidden";
-    // break;
+    debugger;
+    let key = object.id;
 
-    // case 'menuProducto':
-    document.getElementById("divmenuProducto").style.visibility = "hidden";
-    // break;
-
-    //     default:
-    //         alert('hahahahahaha xD');
-    //         break;
-    // }
+    if (document.getElementById(`div${object.id}`).style.visibility == 'visible') {
+        document.getElementById("divmenuHome").style.visibility = "hidden";
+        document.getElementById("divmenuEmpresa").style.visibility = "hidden";
+        document.getElementById("divmenuProducto").style.visibility = "hidden";
+    } else {
+        document.getElementById(object.id).style.visibility = 'visible';
+    }
 }
 
 function MenuShow(object) {
-    // debugger;
-    console.dir(object.id)
     let key = object.id;
     switch (key) {
         case 'menuHome':
             document.getElementById("divmenuHome").style.visibility = "visible";
-            // document.getElementById("divmenuEmpresa").style.visibility = "hidden";
-            // document.getElementById("divmenuProducto").style.visibility = "hidden";
+            document.getElementById("divmenuEmpresa").style.visibility = "hidden";
+            document.getElementById("divmenuProducto").style.visibility = "hidden";
             break;
         case 'menuEmpresa':
-            // document.getElementById("divmenuHome").style.visibility = "hidden";
+            document.getElementById("divmenuHome").style.visibility = "hidden";
             document.getElementById("divmenuEmpresa").style.visibility = "visible";
-            // document.getElementById("divmenuProducto").style.visibility = "hidden";
+            document.getElementById("divmenuProducto").style.visibility = "hidden";
             break;
 
         case 'menuProducto':
-            // document.getElementById("divmenuHome").style.visibility = "hidden";
-            // document.getElementById("divmenuEmpresa").style.visibility = "hidden";
+            document.getElementById("divmenuHome").style.visibility = "hidden";
+            document.getElementById("divmenuEmpresa").style.visibility = "hidden";
             document.getElementById("divmenuProducto").style.visibility = "visible";
             break;
 
@@ -74,7 +63,6 @@ function JobsReadCallBack(jobsparams) {
     // console.dir(jobsparams);
     let renderJobs = '';
     jobsparams.map(item => {
-
         renderJobs += `
         <div class="fh5co-feature">
         <div class="fh5co-text">
@@ -255,10 +243,9 @@ function ClientsRead() {
 
 // region PRODUCTS
 function ProductsReadCallBack(products) {
-
+    
     let renderProducts = '';
     products.map(item => {
-        // renderProducts += `<li id="${item.id}" class="list-group-item"> <input type="checkbox" name="" value="${item.id}"> <img alt="${item.description}" src="${item.imgurl}" width="25px" height="20px"> ${item.name}</li>`;
         renderProducts += `
         <div class="col-md-4 col-sm-6 col-xxs-12 animate-box fadeInUp animated">
         <a href="${item.imgurl}" class="fh5co-project-item image-popup">
