@@ -264,7 +264,8 @@ body {
   position: absolute;
   width: 100%;
   left: 0;
-  top: -12px;
+  /* top: -12px; */
+  top: -35px;
   z-index: 1;
 }
 #fh5co-header #fh5co-logo a {
