@@ -273,10 +273,10 @@ function ProductsRead() {
 }
 
 function OnStart() {
-    ProductsRead();
-    ClientsRead();
-    DownloadsRead();
-    JobsRead();
+    // ProductsRead();
+    // ClientsRead();
+    // DownloadsRead();
+    // JobsRead();
 }
 // end LANDING PAGE
 function ProductUpdate() {

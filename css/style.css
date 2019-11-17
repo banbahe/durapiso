@@ -257,7 +257,7 @@ body {
   position: absolute;
   width: 100%;
   left: 0;
-  padding-top: 50px;
+  padding-top: 43px;
   z-index: 12;
 }
 @media screen and (max-width: 768px) {
@@ -272,7 +272,7 @@ body {
   width: 100%;
   left: 0;
   /* top: -12px; */
-  top: -35px;
+  top: -40px;
   z-index: 1;
 }
 #fh5co-header #fh5co-logo a {
@@ -1087,7 +1087,7 @@ body {
   text-decoration: underline;
 }
 #fh5co-footer .fh5co-copyright {
-  border-top: 1px solid #f0f2f3;
+  border-top: 1px solid #032231;
   padding: 40px 0;
 }
 #fh5co-footer .fh5co-copyright a {

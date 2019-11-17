@@ -1,6 +1,6 @@
 // #region menu
 function MenuHide(object) {
-    debugger;
+    //debugger;
     let key = object.id;
 
     if (document.getElementById(`div${object.id}`).style.visibility == 'visible') {
